@@ -12,16 +12,16 @@ INSERT INTO booksmanagement.authors (author_first_name, author_last_name, author
     ('James', 'Kerr', 'James Kerr has been an interior, landscape and garden photographer for over twenty years. The First World War has always held a great fascination and he has visited the Western Front many times with his camera.', 'Countable'),
     ('Jane', 'Austen', 'Jane Austen was an English novelist known primarily for her six major novels, which interpret, critique, and comment upon the British landed gentry at the end of the 18th century.', 'Penguin Classics');
 
-INSERT INTO booksmanagement.books (ISBN, book_position, book_name, book_description, book_price, book_author, book_genre, book_publisher, book_year, books_sold, author_id) VALUES
+INSERT INTO booksmanagement.books (ISBN, book_position, book_name, book_description, book_price, book_author, book_genre, book_publisher, book_year, books_sold, author) VALUES
     (9711161484100, 1, 'The SHRM Essential guide to Employment Law', 'An easy guide to employment law', 12.33, 'Steve Fleischer', 'Education', 'SHRM', 2021, 13045, 1),
-    (9722161484100, 2, 'Criminal Procedure', 'A very easy guide to criminal procedure', 13.44, ' Sean Samaha', 'Legal help', 'Wadsworth', 2020, 30000, 2),
-    (9783161484109, 3, 'Wuthering Heights', 'Emily Bronte records the story of the passionate love between Catherine Earnshaw and the wild Heathcliff', 25, 'Emily Bronte', 'Fiction', 'Penguin Classics', '1848', 3000, 3),
-    (9744161484100, 4, 'Nineteen Eightyfour ', 'Popular novel', 4.99, 'George Orwell', 'Fiction', 'Signet Classics', 1984, 100000, 4),
+    (9722161484100, 2, 'Criminal Procedure', 'A very easy guide to criminal procedure', 13.44, 'Sean Samaha', 'Legal help', 'Wadsworth', 2020, 30000, 2),
+    (9783161484109, 3, 'Wuthering Heights', 'Emily Bronte records the story of the passionate love between Catherine Earnshaw and the wild Heathcliff', 25, 'Emily Bronte', 'Fiction', 'Penguin Classics', 1848, 3000, 3),
+    (9744161484100, 4, 'Nineteen Eightyfour ', 'Popular novel', 4.99, 'George Orwell', 'Fiction', 'Signet Classics', 1984, 10000, 4),
     (9755161484100, 5, 'The Federalist Papers', 'American history', 3.99, 'Charles Kesler', 'History', 'Signet Classics', 1990, 12990, 5),
-    (9766161484100, 6, 'Introduction to Algorithms', 'Math book', 99.99, 'Cormen Rivest', 'Education', 'Leiserson', 2020, 10000, 6),
-    (9783161484106, 7, 'The Fiance and other stories', 'A collection of works by Anton Chekhov', 15, 'Anton Chekhov', 'Fiction', 'Penguin Classics', '1890', 120000, 7),
+    (9766161484100, 6, 'Introduction to Algorithms', 'Math book', 99.99, 'Cormen Rivest', 'Education', 'Leiserson', 2020, 13000, 6),
+    (9783161484106, 7, 'The Fiance and other stories', 'A collection of works by Anton Chekhov', 15, 'Anton Chekhov', 'Fiction', 'Penguin Classics', 1890, 120000, 7),
     (9883161484100, 8, 'Atlas Shrugged', 'Fictional novel', 10.99, 'Ayn Rand', 'Fiction', 'Plume', 1999, 99999, 8),
     (9993161484100, 9, 'Enough Already', 'American history', 9.99, 'Scott Horton', 'History', 'Libertarian institute', 2010, 88888, 9),
     (9953161484100, 10, 'Leaders Eat Last', 'Inspirational', 10.99, 'Simon Sinek', 'Education', 'Portfolio Penguin', 2009, 1010, 10),
     (9783161484101, 11, 'Legacy', 'A lesson in leadership', 29.99, 'James Kerr', 'Inspirational', 'Countable', 2020, 10405, 11),
-    (9783161484107, 12, 'Pride and Prejudice', 'A man changes his manners and a young lady her mind', 13.00, 'Jane Austen', 'Fiction', 'Penguin Classics', 1813, 2000000, 12);
+    (9783161484107, 12, 'Pride and Prejudice', 'A man changes his manners and a young lady her mind', 13.00, 'Jane Austen', 'Fiction', 'Penguin Classics', 1813, 20000, 12);
