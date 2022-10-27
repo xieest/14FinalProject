@@ -1,10 +1,9 @@
 package com.example.demo.entities;
 
-
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Getter
@@ -13,24 +12,28 @@ import java.util.Set;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "Carts")
+@Table(name = "Cart")
 public class Cart {
 
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private int cart_id;
+    @Column(name = "ISBN", nullable = false)
+    private long bookISBN;
 
-    @OneToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user")
-    private User user;
+    @Column(name = "book_name", nullable = false)
+    private String name;
 
-    @ManyToMany
-    @JoinTable(
-            name = "books_cart",
-            joinColumns = @JoinColumn(name = "cart_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_ISBN")
-    )
-    private Set<Book> books_in_cart = new HashSet<>();
+    @Column(name = "book_price", nullable = false)
+    private double price;
+
+//    @ManyToMany
+//    @JoinTable(name = "cart_books_in_cart",
+//            joinColumns = @JoinColumn(name = "cart_isbn", referencedColumnName = "books_in_cart_isbn"))
+//    private Set<Book> books = new LinkedHashSet<>();
+//
+//    @OneToOne(orphanRemoval = true)
+//    @JoinTable(name = "cart_user",
+//            joinColumns = @JoinColumn(name = "cart_isbn"),
+//            inverseJoinColumns = @JoinColumn(name = "user_username"))
+//    private User user;
+
 }

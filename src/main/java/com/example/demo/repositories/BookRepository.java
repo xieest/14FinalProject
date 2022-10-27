@@ -12,6 +12,7 @@ import java.util.Set;
 public interface BookRepository extends JpaRepository<Book, Long> {
 
     Book findByBookISBN(long bookISBN);
+    Book findByBookName(String bookName);
 
     default Set<Rating> findRatingsByBookISBN(long bookISBN) {
         Book book = findByBookISBN(bookISBN);

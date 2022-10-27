@@ -31,6 +31,14 @@ public class BookService {
         }
     }
 
+    public Book findByBookName(String bookName) {
+        try {
+            return bookRepository.findByBookName(bookName);
+        } catch (NoSuchElementException e) {
+            throw e;
+        }
+    }
+
     public Book saveBook(Book inputtedBook) {
         try {
             Book book = new Book();
