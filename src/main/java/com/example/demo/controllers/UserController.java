@@ -18,6 +18,13 @@ public class UserController {
     @ApiOperation(value = "save new user to the database")
     @PostMapping(value = {"", "/create"}, consumes = {"application/json", "application/xml"})
     public ResponseEntity<Boolean> createUser(@RequestBody User user) {
+        System.out.println("==========");
+        System.out.printf("username %s\n", user.getUserName());
+        System.out.printf("password %s\n", user.getPassword());
+        System.out.printf("first name %s\n", user.getFirstName());
+        System.out.printf("last name %s\n", user.getLastName());
+        System.out.printf("home address %s\n", user.getHomeAddress());
+        System.out.println("==========");
         if(userService.createUser(user)){
             return new ResponseEntity<>(true, HttpStatus.CREATED);
         }else {
