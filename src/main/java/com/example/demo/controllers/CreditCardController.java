@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
 import java.util.List;
 
 @RestController
@@ -32,7 +33,12 @@ public class CreditCardController {
     @GetMapping("/fetch/{username}")
     public ResponseEntity<List<CreditCard>> findUserByUsername(@PathVariable String username){
        return creditCardService.listCreditCardsForUser(username)
-               .map(ResponseEntity::ok)
+               .map(creditCards ->{
+                   System.out.println("We are returning the object");
+                   ResponseEntity<List<CreditCard>> response = ResponseEntity.ok(creditCards);
+                   System.out.println("We created the response");
+                   return response;
+               } )
                .orElse(ResponseEntity.notFound().build());
     }
 }
