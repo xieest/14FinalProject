@@ -17,6 +17,14 @@ public class BookService {
     @Autowired
     private BookRepository bookRepository;
 
+    List<Book> list = new ArrayList<>();
+
+    public BookService(){
+        System.out.println("Service Layer is created");
+        //list.add(new Book(9711161484100, 1, "The SHRM Essential guide to Employment Law", "An easy guide to employment law", 12.33, "Steve Fleischer", "Education", "SHRM", 2021, 13045, 1));
+    }
+
+    /* xieest original code
     public List<Book> findAll(){
 
         return bookRepository.findAll();
@@ -77,6 +85,6 @@ public class BookService {
             throw e;
         }
     }
-
+    */
 }
 

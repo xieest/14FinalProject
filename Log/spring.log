@@ -1,636 +1,151 @@
-2022-11-04 17:03:07.826  INFO 2200 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.2 on Edwards-MacBook-Pro.local with PID 2200 (/Users/sparks/Documents/GitHub/14FinalProject/target/classes started by sparks in /Users/sparks/Documents/GitHub/14FinalProject)
-2022-11-04 17:03:07.830  INFO 2200 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2022-11-04 17:03:08.214  INFO 2200 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-11-04 17:03:08.249  INFO 2200 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 2 JPA repository interfaces.
-2022-11-04 17:03:08.583  INFO 2200 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-11-04 17:03:08.588  INFO 2200 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-11-04 17:03:08.589  INFO 2200 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-11-04 17:03:08.649  INFO 2200 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-11-04 17:03:08.649  INFO 2200 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 792 ms
-2022-11-04 17:03:08.746 DEBUG 2200 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2022-11-04 17:03:08.758  INFO 2200 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-11-04 17:03:08.798  INFO 2200 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-11-04 17:03:08.912  INFO 2200 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-11-04 17:03:08.974  INFO 2200 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-11-04 17:03:09.131  INFO 2200 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-11-04 17:03:09.143  INFO 2200 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2022-11-04 17:03:09.528 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
-2022-11-04 17:03:09.570 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `carts` drop foreign key `FKcpyl3syvxjhrbe2xtdp1h4r6k`
-2022-11-04 17:03:09.575 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
-2022-11-04 17:03:09.579 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
-2022-11-04 17:03:09.582 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
-2022-11-04 17:03:09.586 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
-2022-11-04 17:03:09.590 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books_cart` drop foreign key `FK8l9ohbf12ydxw3c1265vol5gb`
-2022-11-04 17:03:09.593 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books_cart` drop foreign key `FKer7boc7bpsmcckxpvjsx6lxe2`
-2022-11-04 17:03:09.596 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
-2022-11-04 17:03:09.600 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
-2022-11-04 17:03:09.602 DEBUG 2200 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
-2022-11-04 17:03:09.609 DEBUG 2200 --- [main] org.hibernate.SQL                        : drop table if exists `books`
-2022-11-04 17:03:09.613 DEBUG 2200 --- [main] org.hibernate.SQL                        : drop table if exists `carts`
-2022-11-04 17:03:09.616 DEBUG 2200 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
-2022-11-04 17:03:09.619 DEBUG 2200 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
-2022-11-04 17:03:09.624 DEBUG 2200 --- [main] org.hibernate.SQL                        : drop table if exists `users`
-2022-11-04 17:03:09.627 DEBUG 2200 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
-2022-11-04 17:03:09.630 DEBUG 2200 --- [main] org.hibernate.SQL                        : drop table if exists `books_cart`
-2022-11-04 17:03:09.632 DEBUG 2200 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
-2022-11-04 17:03:09.636 DEBUG 2200 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:03:09.640 DEBUG 2200 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255) not null, `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255) not null, `book_name` varchar(255) not null, `book_price` double precision not null, `book_publisher` varchar(255) not null, `book_year` integer not null, `books_sold` integer not null, `author` integer not null, primary key (`isbn`)) engine=InnoDB
-2022-11-04 17:03:09.645 DEBUG 2200 --- [main] org.hibernate.SQL                        : create table `carts` (`id` integer not null auto_increment, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:03:09.650 DEBUG 2200 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:03:09.654 DEBUG 2200 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:03:09.658 DEBUG 2200 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
-2022-11-04 17:03:09.662 DEBUG 2200 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:03:09.666 DEBUG 2200 --- [main] org.hibernate.SQL                        : create table `books_cart` (`cart_id` integer not null, `book_isbn` bigint not null, primary key (`cart_id`, `book_isbn`)) engine=InnoDB
-2022-11-04 17:03:09.671 DEBUG 2200 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
-2022-11-04 17:03:09.675 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `carts` add constraint UK_36t0r06l8ctnj4v5ssw7v2iee unique (`user`)
-2022-11-04 17:03:09.685 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
-2022-11-04 17:03:09.690 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
-2022-11-04 17:03:09.700 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `carts` add constraint `FKcpyl3syvxjhrbe2xtdp1h4r6k` foreign key (`user`) references `users` (`username`)
-2022-11-04 17:03:09.710 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
-2022-11-04 17:03:09.721 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
-2022-11-04 17:03:09.731 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
-2022-11-04 17:03:09.741 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
-2022-11-04 17:03:09.750 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books_cart` add constraint `FK8l9ohbf12ydxw3c1265vol5gb` foreign key (`book_isbn`) references `books` (`isbn`)
-2022-11-04 17:03:09.759 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books_cart` add constraint `FKer7boc7bpsmcckxpvjsx6lxe2` foreign key (`cart_id`) references `carts` (`id`)
-2022-11-04 17:03:09.769 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
-2022-11-04 17:03:09.782 DEBUG 2200 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
-2022-11-04 17:03:09.793  INFO 2200 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-11-04 17:03:09.797  INFO 2200 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-11-04 17:03:09.862 DEBUG 2200 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:03:09.900 DEBUG 2200 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:03:09.952 DEBUG 2200 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:03:09.988 DEBUG 2200 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:03:10.013 DEBUG 2200 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:03:10.022 DEBUG 2200 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:03:10.023 DEBUG 2200 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:03:10.036 DEBUG 2200 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:03:10.037 DEBUG 2200 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:03:10.058  WARN 2200 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-11-04 17:03:10.259  INFO 2200 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-11-04 17:03:10.264  INFO 2200 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 2.844 seconds (JVM running for 3.125)
-2022-11-04 17:05:10.509  INFO 2200 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-11-04 17:05:10.510  INFO 2200 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-11-04 17:05:10.512  INFO 2200 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-11-04 17:05:31.912  INFO 2243 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.2 on Edwards-MacBook-Pro.local with PID 2243 (/Users/sparks/Documents/GitHub/14FinalProject/target/classes started by sparks in /Users/sparks/Documents/GitHub/14FinalProject)
-2022-11-04 17:05:31.914  INFO 2243 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2022-11-04 17:05:32.268  INFO 2243 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-11-04 17:05:32.299  INFO 2243 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 2 JPA repository interfaces.
-2022-11-04 17:05:32.616  INFO 2243 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-11-04 17:05:32.624  INFO 2243 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-11-04 17:05:32.624  INFO 2243 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-11-04 17:05:32.677  INFO 2243 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-11-04 17:05:32.678  INFO 2243 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 737 ms
-2022-11-04 17:05:32.771 DEBUG 2243 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2022-11-04 17:05:32.781  INFO 2243 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-11-04 17:05:32.809  INFO 2243 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-11-04 17:05:32.902  INFO 2243 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-11-04 17:05:32.951  INFO 2243 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-11-04 17:05:33.057  INFO 2243 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-11-04 17:05:33.066  INFO 2243 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2022-11-04 17:05:33.426 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
-2022-11-04 17:05:33.437  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.books' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.437 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `carts` drop foreign key `FKcpyl3syvxjhrbe2xtdp1h4r6k`
-2022-11-04 17:05:33.439  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `carts` drop foreign key `FKcpyl3syvxjhrbe2xtdp1h4r6k`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `carts` drop foreign key `FKcpyl3syvxjhrbe2xtdp1h4r6k`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.carts' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.439 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
-2022-11-04 17:05:33.440  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.credit_cards' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.440 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
-2022-11-04 17:05:33.442  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.ratings' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.442 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
-2022-11-04 17:05:33.443  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.ratings' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.444 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
-2022-11-04 17:05:33.445  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.wishlists' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.446 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books_cart` drop foreign key `FK8l9ohbf12ydxw3c1265vol5gb`
-2022-11-04 17:05:33.448  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `books_cart` drop foreign key `FK8l9ohbf12ydxw3c1265vol5gb`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `books_cart` drop foreign key `FK8l9ohbf12ydxw3c1265vol5gb`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.books_cart' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.448 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books_cart` drop foreign key `FKer7boc7bpsmcckxpvjsx6lxe2`
-2022-11-04 17:05:33.451  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `books_cart` drop foreign key `FKer7boc7bpsmcckxpvjsx6lxe2`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `books_cart` drop foreign key `FKer7boc7bpsmcckxpvjsx6lxe2`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.books_cart' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.451 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
-2022-11-04 17:05:33.453  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.books_wishlist' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.453 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
-2022-11-04 17:05:33.455  WARN 2243 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`" via JDBC Statement
-
-org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`" via JDBC Statement
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.22.jar:5.3.22]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.7.3.jar:2.7.3]
-	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295) ~[spring-boot-2.7.3.jar:2.7.3]
-	at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[classes/:na]
-Caused by: java.sql.SQLSyntaxErrorException: Table 'booksmanagement.books_wishlist' doesn't exist
-	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-java-8.0.30.jar:8.0.30]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:na]
-	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 35 common frames omitted
-
-2022-11-04 17:05:33.455 DEBUG 2243 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
-2022-11-04 17:05:33.462 DEBUG 2243 --- [main] org.hibernate.SQL                        : drop table if exists `books`
-2022-11-04 17:05:33.465 DEBUG 2243 --- [main] org.hibernate.SQL                        : drop table if exists `carts`
-2022-11-04 17:05:33.468 DEBUG 2243 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
-2022-11-04 17:05:33.471 DEBUG 2243 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
-2022-11-04 17:05:33.473 DEBUG 2243 --- [main] org.hibernate.SQL                        : drop table if exists `users`
-2022-11-04 17:05:33.474 DEBUG 2243 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
-2022-11-04 17:05:33.475 DEBUG 2243 --- [main] org.hibernate.SQL                        : drop table if exists `books_cart`
-2022-11-04 17:05:33.477 DEBUG 2243 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
-2022-11-04 17:05:33.480 DEBUG 2243 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:05:33.490 DEBUG 2243 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255) not null, `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255) not null, `book_name` varchar(255) not null, `book_price` double precision not null, `book_publisher` varchar(255) not null, `book_year` integer not null, `books_sold` integer not null, `author` integer not null, primary key (`isbn`)) engine=InnoDB
-2022-11-04 17:05:33.498 DEBUG 2243 --- [main] org.hibernate.SQL                        : create table `carts` (`id` integer not null auto_increment, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:05:33.504 DEBUG 2243 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:05:33.507 DEBUG 2243 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:05:33.512 DEBUG 2243 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
-2022-11-04 17:05:33.516 DEBUG 2243 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-11-04 17:05:33.519 DEBUG 2243 --- [main] org.hibernate.SQL                        : create table `books_cart` (`cart_id` integer not null, `book_isbn` bigint not null, primary key (`cart_id`, `book_isbn`)) engine=InnoDB
-2022-11-04 17:05:33.523 DEBUG 2243 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
-2022-11-04 17:05:33.527 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `carts` add constraint UK_36t0r06l8ctnj4v5ssw7v2iee unique (`user`)
-2022-11-04 17:05:33.531 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
-2022-11-04 17:05:33.535 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
-2022-11-04 17:05:33.546 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `carts` add constraint `FKcpyl3syvxjhrbe2xtdp1h4r6k` foreign key (`user`) references `users` (`username`)
-2022-11-04 17:05:33.555 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
-2022-11-04 17:05:33.564 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
-2022-11-04 17:05:33.575 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
-2022-11-04 17:05:33.586 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
-2022-11-04 17:05:33.595 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books_cart` add constraint `FK8l9ohbf12ydxw3c1265vol5gb` foreign key (`book_isbn`) references `books` (`isbn`)
-2022-11-04 17:05:33.605 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books_cart` add constraint `FKer7boc7bpsmcckxpvjsx6lxe2` foreign key (`cart_id`) references `carts` (`id`)
-2022-11-04 17:05:33.614 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
-2022-11-04 17:05:33.624 DEBUG 2243 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
-2022-11-04 17:05:33.634  INFO 2243 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-11-04 17:05:33.638  INFO 2243 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-11-04 17:05:33.693 DEBUG 2243 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:05:33.717 DEBUG 2243 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:05:33.762 DEBUG 2243 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:05:33.794 DEBUG 2243 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:05:33.818 DEBUG 2243 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:05:33.825 DEBUG 2243 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:05:33.826 DEBUG 2243 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:05:33.835 DEBUG 2243 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:05:33.836 DEBUG 2243 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-11-04 17:05:33.856  WARN 2243 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-11-04 17:05:34.052  INFO 2243 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-11-04 17:05:34.059  INFO 2243 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 2.533 seconds (JVM running for 2.73)
-2022-11-04 17:10:31.497  INFO 2243 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-11-04 17:10:31.499  INFO 2243 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-11-04 17:10:31.504  INFO 2243 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-11-07 15:45:05.291  INFO 2853 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.2 on Edwards-MacBook-Pro.local with PID 2853 (/Users/sparks/Documents/GitHub/14FinalProject/target/classes started by sparks in /Users/sparks/Documents/GitHub/14FinalProject)
+2022-11-07 15:45:05.293  INFO 2853 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-11-07 15:45:05.579  INFO 2853 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-07 15:45:05.606  INFO 2853 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+2022-11-07 15:45:05.862  INFO 2853 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-07 15:45:05.867  INFO 2853 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-07 15:45:05.867  INFO 2853 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-11-07 15:45:05.916  INFO 2853 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-07 15:45:05.917  INFO 2853 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 601 ms
+2022-11-07 15:45:05.992 DEBUG 2853 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2022-11-07 15:45:06.001  INFO 2853 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-07 15:45:06.027  INFO 2853 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-11-07 15:45:06.110  INFO 2853 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-07 15:45:06.158  INFO 2853 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-07 15:45:06.289  INFO 2853 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-07 15:45:06.300  INFO 2853 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-11-07 15:45:06.622 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
+2022-11-07 15:45:06.656 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `carts` drop foreign key `FKcpyl3syvxjhrbe2xtdp1h4r6k`
+2022-11-07 15:45:06.665 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
+2022-11-07 15:45:06.669 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
+2022-11-07 15:45:06.672 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
+2022-11-07 15:45:06.674 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
+2022-11-07 15:45:06.678 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books_cart` drop foreign key `FK8l9ohbf12ydxw3c1265vol5gb`
+2022-11-07 15:45:06.681 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books_cart` drop foreign key `FKer7boc7bpsmcckxpvjsx6lxe2`
+2022-11-07 15:45:06.684 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
+2022-11-07 15:45:06.686 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
+2022-11-07 15:45:06.689 DEBUG 2853 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
+2022-11-07 15:45:06.692 DEBUG 2853 --- [main] org.hibernate.SQL                        : drop table if exists `books`
+2022-11-07 15:45:06.694 DEBUG 2853 --- [main] org.hibernate.SQL                        : drop table if exists `carts`
+2022-11-07 15:45:06.696 DEBUG 2853 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
+2022-11-07 15:45:06.697 DEBUG 2853 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
+2022-11-07 15:45:06.700 DEBUG 2853 --- [main] org.hibernate.SQL                        : drop table if exists `users`
+2022-11-07 15:45:06.702 DEBUG 2853 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
+2022-11-07 15:45:06.704 DEBUG 2853 --- [main] org.hibernate.SQL                        : drop table if exists `books_cart`
+2022-11-07 15:45:06.706 DEBUG 2853 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
+2022-11-07 15:45:06.709 DEBUG 2853 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 15:45:06.713 DEBUG 2853 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255), `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255), `book_name` varchar(255), `book_price` double precision, `book_publisher` varchar(255), `book_year` integer, `books_sold` integer, `author` integer not null, primary key (`isbn`)) engine=InnoDB
+2022-11-07 15:45:06.718 DEBUG 2853 --- [main] org.hibernate.SQL                        : create table `carts` (`id` integer not null auto_increment, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 15:45:06.722 DEBUG 2853 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 15:45:06.725 DEBUG 2853 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 15:45:06.730 DEBUG 2853 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
+2022-11-07 15:45:06.732 DEBUG 2853 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 15:45:06.737 DEBUG 2853 --- [main] org.hibernate.SQL                        : create table `books_cart` (`cart_id` integer not null, `book_isbn` bigint not null, primary key (`cart_id`, `book_isbn`)) engine=InnoDB
+2022-11-07 15:45:06.740 DEBUG 2853 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
+2022-11-07 15:45:06.743 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `carts` add constraint UK_36t0r06l8ctnj4v5ssw7v2iee unique (`user`)
+2022-11-07 15:45:06.747 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
+2022-11-07 15:45:06.752 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
+2022-11-07 15:45:06.762 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `carts` add constraint `FKcpyl3syvxjhrbe2xtdp1h4r6k` foreign key (`user`) references `users` (`username`)
+2022-11-07 15:45:06.768 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
+2022-11-07 15:45:06.775 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
+2022-11-07 15:45:06.783 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
+2022-11-07 15:45:06.795 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
+2022-11-07 15:45:06.814 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books_cart` add constraint `FK8l9ohbf12ydxw3c1265vol5gb` foreign key (`book_isbn`) references `books` (`isbn`)
+2022-11-07 15:45:06.820 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books_cart` add constraint `FKer7boc7bpsmcckxpvjsx6lxe2` foreign key (`cart_id`) references `carts` (`id`)
+2022-11-07 15:45:06.827 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
+2022-11-07 15:45:06.835 DEBUG 2853 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
+2022-11-07 15:45:06.844  INFO 2853 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-07 15:45:06.847  INFO 2853 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-07 15:45:06.891 DEBUG 2853 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 15:45:06.914 DEBUG 2853 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 15:45:06.950 DEBUG 2853 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 15:45:06.984 DEBUG 2853 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 15:45:07.004 DEBUG 2853 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 15:45:07.013 DEBUG 2853 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 15:45:07.014 DEBUG 2853 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 15:45:07.023 DEBUG 2853 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 15:45:07.023 DEBUG 2853 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 15:45:07.040  WARN 2853 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-07 15:45:07.197  INFO 2853 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-07 15:45:07.201  INFO 2853 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 2.094 seconds (JVM running for 2.285)
+2022-11-07 15:46:13.250  INFO 2853 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-11-07 15:46:13.250  INFO 2853 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-11-07 15:46:13.251  INFO 2853 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2022-11-07 15:46:13.260 DEBUG 2853 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-11-07 15:46:13.274 DEBUG 2853 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-11-07 15:46:48.718  INFO 2853 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-07 15:46:48.719  INFO 2853 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-07 15:46:48.720  INFO 2853 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-11-07 16:24:51.586  INFO 3203 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.2 on Edwards-MacBook-Pro.local with PID 3203 (/Users/sparks/Documents/GitHub/14FinalProject/target/classes started by sparks in /Users/sparks/Documents/GitHub/14FinalProject)
+2022-11-07 16:24:51.587  INFO 3203 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-11-07 16:24:51.849  INFO 3203 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-07 16:24:51.871  INFO 3203 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 18 ms. Found 2 JPA repository interfaces.
+2022-11-07 16:24:52.094  INFO 3203 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-11-07 16:24:52.098  INFO 3203 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-11-07 16:24:52.099  INFO 3203 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-11-07 16:24:52.139  INFO 3203 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-11-07 16:24:52.139  INFO 3203 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 532 ms
+2022-11-07 16:24:52.203 DEBUG 3203 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2022-11-07 16:24:52.212  INFO 3203 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-07 16:24:52.238  INFO 3203 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-11-07 16:24:52.306  INFO 3203 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-07 16:24:52.351  INFO 3203 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-07 16:24:52.431  INFO 3203 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-07 16:24:52.439  INFO 3203 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-11-07 16:24:52.718 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
+2022-11-07 16:24:52.744 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `carts` drop foreign key `FKcpyl3syvxjhrbe2xtdp1h4r6k`
+2022-11-07 16:24:52.752 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
+2022-11-07 16:24:52.755 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
+2022-11-07 16:24:52.757 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
+2022-11-07 16:24:52.760 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
+2022-11-07 16:24:52.763 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books_cart` drop foreign key `FK8l9ohbf12ydxw3c1265vol5gb`
+2022-11-07 16:24:52.765 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books_cart` drop foreign key `FKer7boc7bpsmcckxpvjsx6lxe2`
+2022-11-07 16:24:52.768 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
+2022-11-07 16:24:52.771 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
+2022-11-07 16:24:52.773 DEBUG 3203 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
+2022-11-07 16:24:52.774 DEBUG 3203 --- [main] org.hibernate.SQL                        : drop table if exists `books`
+2022-11-07 16:24:52.776 DEBUG 3203 --- [main] org.hibernate.SQL                        : drop table if exists `carts`
+2022-11-07 16:24:52.777 DEBUG 3203 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
+2022-11-07 16:24:52.778 DEBUG 3203 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
+2022-11-07 16:24:52.780 DEBUG 3203 --- [main] org.hibernate.SQL                        : drop table if exists `users`
+2022-11-07 16:24:52.783 DEBUG 3203 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
+2022-11-07 16:24:52.785 DEBUG 3203 --- [main] org.hibernate.SQL                        : drop table if exists `books_cart`
+2022-11-07 16:24:52.786 DEBUG 3203 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
+2022-11-07 16:24:52.788 DEBUG 3203 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 16:24:52.791 DEBUG 3203 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255), `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255), `book_name` varchar(255), `book_price` double precision, `book_publisher` varchar(255), `book_year` integer, `books_sold` integer, `author` integer not null, primary key (`isbn`)) engine=InnoDB
+2022-11-07 16:24:52.794 DEBUG 3203 --- [main] org.hibernate.SQL                        : create table `carts` (`id` integer not null auto_increment, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 16:24:52.797 DEBUG 3203 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 16:24:52.799 DEBUG 3203 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 16:24:52.801 DEBUG 3203 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
+2022-11-07 16:24:52.805 DEBUG 3203 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-11-07 16:24:52.807 DEBUG 3203 --- [main] org.hibernate.SQL                        : create table `books_cart` (`cart_id` integer not null, `book_isbn` bigint not null, primary key (`cart_id`, `book_isbn`)) engine=InnoDB
+2022-11-07 16:24:52.811 DEBUG 3203 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
+2022-11-07 16:24:52.815 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `carts` add constraint UK_36t0r06l8ctnj4v5ssw7v2iee unique (`user`)
+2022-11-07 16:24:52.818 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
+2022-11-07 16:24:52.821 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
+2022-11-07 16:24:52.830 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `carts` add constraint `FKcpyl3syvxjhrbe2xtdp1h4r6k` foreign key (`user`) references `users` (`username`)
+2022-11-07 16:24:52.836 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
+2022-11-07 16:24:52.842 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
+2022-11-07 16:24:52.849 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
+2022-11-07 16:24:52.855 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
+2022-11-07 16:24:52.861 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books_cart` add constraint `FK8l9ohbf12ydxw3c1265vol5gb` foreign key (`book_isbn`) references `books` (`isbn`)
+2022-11-07 16:24:52.867 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books_cart` add constraint `FKer7boc7bpsmcckxpvjsx6lxe2` foreign key (`cart_id`) references `carts` (`id`)
+2022-11-07 16:24:52.873 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
+2022-11-07 16:24:52.879 DEBUG 3203 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
+2022-11-07 16:24:52.885  INFO 3203 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-07 16:24:52.889  INFO 3203 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-07 16:24:52.931 DEBUG 3203 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 16:24:52.954 DEBUG 3203 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 16:24:52.991 DEBUG 3203 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 16:24:53.021 DEBUG 3203 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 16:24:53.039 DEBUG 3203 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 16:24:53.049 DEBUG 3203 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 16:24:53.050 DEBUG 3203 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 16:24:53.058 DEBUG 3203 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 16:24:53.059 DEBUG 3203 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-11-07 16:24:53.076  WARN 3203 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-11-07 16:24:53.227  INFO 3203 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-11-07 16:24:53.231  INFO 3203 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 1.978 seconds (JVM running for 2.162)
+2022-11-07 16:27:45.747  INFO 3203 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-11-07 16:27:45.749  INFO 3203 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-11-07 16:27:45.752  INFO 3203 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

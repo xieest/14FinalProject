@@ -16,12 +16,17 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping(value = "/books")
+//@RequestMapping(value = "/books")
 public class BookController {
 //updated
     @Autowired
     private BookService bookService;
 
+    @RequestMapping(value = "/message")
+    public String getMessage(){
+        return "Hello I'm from the controller";
+    }
+/* beginning of xieest original code
     @ApiOperation(value = "save new book to the database")
     @PostMapping(value = {"", "/"})
     public ResponseEntity<Book> saveBook(@RequestBody Book book) {
@@ -35,7 +40,7 @@ public class BookController {
     }
 
     @ApiOperation(value = "return all books from database")
-    @GetMapping(value = {"", "/"})
+    @GetMapping(value = {"/allBooks"})
     public ResponseEntity<List<Book>> getBooks(){
         return new ResponseEntity<>(bookService.findAll(), HttpStatus.OK);
     }
@@ -58,5 +63,5 @@ public class BookController {
         bookService.removeBook(bookISBN);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
+*/
 }
