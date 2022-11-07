@@ -31,14 +31,9 @@ public class CreditCardController {
 
     @ApiOperation(value = "return a user given a username")
     @GetMapping("/fetch/{username}")
-    public ResponseEntity<List<CreditCard>> findUserByUsername(@PathVariable String username){
+    public ResponseEntity<List<Long>> findByUsername(@PathVariable String username){
        return creditCardService.listCreditCardsForUser(username)
-               .map(creditCards ->{
-                   System.out.println("We are returning the object");
-                   ResponseEntity<List<CreditCard>> response = ResponseEntity.ok(creditCards);
-                   System.out.println("We created the response");
-                   return response;
-               } )
+               .map(ResponseEntity::ok)
                .orElse(ResponseEntity.notFound().build());
     }
 }

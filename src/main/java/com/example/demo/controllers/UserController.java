@@ -1,5 +1,7 @@
 package com.example.demo.controllers;
 
+import com.example.demo.entities.CreateUserRequest;
+import com.example.demo.entities.UpdateUserRequest;
 import com.example.demo.entities.User;
 import com.example.demo.services.UserService;
 import io.swagger.annotations.ApiOperation;
@@ -17,15 +19,8 @@ public class UserController {
 
     @ApiOperation(value = "save new user to the database")
     @PostMapping(value = {"", "/create"}, consumes = {"application/json", "application/xml"})
-    public ResponseEntity<Boolean> createUser(@RequestBody User user) {
-        System.out.println("==========");
-        System.out.printf("username %s\n", user.getUserName());
-        System.out.printf("password %s\n", user.getPassword());
-        System.out.printf("first name %s\n", user.getFirstName());
-        System.out.printf("last name %s\n", user.getLastName());
-        System.out.printf("home address %s\n", user.getHomeAddress());
-        System.out.println("==========");
-        if(userService.createUser(user)){
+    public ResponseEntity<Boolean> createUser(@RequestBody CreateUserRequest createUserRequest) {
+        if(userService.createUser(createUserRequest)){
             return new ResponseEntity<>(true, HttpStatus.CREATED);
         }else {
             return ResponseEntity.badRequest().build();
@@ -42,8 +37,8 @@ public class UserController {
 
     @ApiOperation(value = "update the user")
     @PostMapping(value = {"/update"},consumes = {"application/json", "application/xml"})
-    public ResponseEntity<Boolean> updateUser(@RequestBody User user){
-        if(userService.updateUser(user)){
+    public ResponseEntity<Boolean> updateUser(@RequestBody UpdateUserRequest updateUserRequest){
+        if(userService.updateUser(updateUserRequest)){
             return new ResponseEntity<>(true, HttpStatus.OK);
         }else {
             return ResponseEntity.badRequest().build();
