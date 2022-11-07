@@ -19,16 +19,9 @@ public class CreditCardService {
     @Autowired
     private CreditCardRepository creditCardRepository;
 
-    public Optional<List<CreditCard>> listCreditCardsForUser(String userName) {
+    public Optional<List<Long>> listCreditCardsForUser(String userName) {
         return userRepository.findById(userName)
-                .map(user -> {
-                    System.out.println("We found the user");
-                    Collection<CreditCard> creditCards = creditCardRepository.findByUser(user);
-                    for(CreditCard creditCard : creditCards) {
-                        System.out.printf("Credit Card: %d \n", creditCard.getCardNumber());
-                    }
-                    return creditCards.stream().toList();
-                }); // this function is going to take in whatever map is passing in.
+                .map(user -> creditCardRepository.findByUser(user).stream().map(CreditCard::getCardNumber).toList()); // this function is going to take in whatever map is passing in.
     }// optional is a way to wrap objects to see if they either exist or do not exist.
 
     public boolean createCreditCard(long creditCardNumber, String userName) {
