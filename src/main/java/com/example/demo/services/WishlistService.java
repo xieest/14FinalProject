@@ -16,6 +16,8 @@ import java.util.NoSuchElementException;
 public class WishlistService {
     @Autowired
     private WishlistRepository wishlistRepository;
+    private List<Wishlist> wishlists = new ArrayList<>();
+
 
     public List<Wishlist> findAll(){
 

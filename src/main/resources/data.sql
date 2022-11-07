@@ -25,3 +25,6 @@ INSERT INTO booksmanagement.books (ISBN, book_position, book_name, book_descript
     (9953161484100, 10, 'Leaders Eat Last', 'Inspirational', 10.99, 'Simon Sinek', 'Education', 'Portfolio Penguin', 2009, 1010, 10),
     (9783161484101, 11, 'Legacy', 'A lesson in leadership', 29.99, 'James Kerr', 'Inspirational', 'Countable', 2020, 10405, 11),
     (9783161484107, 12, 'Pride and Prejudice', 'A man changes his manners and a young lady her mind', 13.00, 'Jane Austen', 'Fiction', 'Penguin Classics', 1813, 20000, 12);
+
+INSERT INTO booksmanagement.users (username, first_name, home_address, last_name, password) VALUES
+     ('some_email_here', 'firstname', 'address_here', 'lastname', 'password');
