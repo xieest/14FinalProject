@@ -19,12 +19,14 @@ public class RatingService {
     @Autowired
     private BookRepository bookRepository;
 
+    // A simple method that returns all ratings in our database, for all books and users
     public List<Rating> findAll(){
 
         return ratingRepository.findAll();
 
     }
 
+    // Here we rely on the bookRepository to return us a Book object that is then used to find all ratings associated with the book
     public List<Rating> findAllByBook(long bookISBN) {
         try {
             return ratingRepository.findAllByBook(bookRepository.findByBookISBN(bookISBN));
@@ -33,6 +35,7 @@ public class RatingService {
         }
     }
 
+    // Once a valid rating is provided to this method, it saves the rating in our database
     public Rating saveRating(Rating inputtedRating) {
         try {
             Rating rating = new Rating();
