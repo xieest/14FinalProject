@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,7 +27,7 @@ public class Book implements Serializable {
     @Column(name = "book_name")
     private String bookName;
 
-    @Column(length = 500, name = "book_description")
+    @Column(name = "book_description")
     private String bookDescription;
 
     @Column(name = "book_price")
@@ -47,8 +48,10 @@ public class Book implements Serializable {
     @Column(name = "books_sold")
     private int booksSold;
 
+    @Column(name = "book_avg_rating")
+    private Double bookAvgRating;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "author")
     private Author author;
 
@@ -58,7 +61,8 @@ public class Book implements Serializable {
     @ManyToMany(mappedBy = "books_in_wishlist")
     private Set<Wishlist> wishlists = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "book")
     private Set<Rating> ratings = new HashSet<>();
 
 }
