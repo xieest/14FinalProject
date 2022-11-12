@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +14,7 @@ import java.util.Set;
 @ToString
 @Entity
 @Table(name = "Users")
-public class User {
+public class User implements java.io.Serializable{
     @Id
     //May want to add an email constraint, as these strings all have to be valid emails
     @Column(name = "username", unique = true, nullable = false)
@@ -40,6 +41,7 @@ public class User {
     @OneToOne(fetch=FetchType.LAZY, mappedBy = "user")
     private Cart cart;
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Rating> ratings = new HashSet<>();
 }
