@@ -97,7 +97,7 @@ public class RatingControllerJUnitTests {
     }
 
     @Test
-    void getAllRatings() {
+    void testGetAllRatings() {
 
         ratingController.saveRating(rating1);
         ratingController.saveRating(rating2);
@@ -117,7 +117,7 @@ public class RatingControllerJUnitTests {
     }
 
     @Test
-    void getRatingsSorted() {
+    void testGetRatingsSorted() {
 
         ratingController.saveRating(rating1);
         ratingController.saveRating(rating2);
