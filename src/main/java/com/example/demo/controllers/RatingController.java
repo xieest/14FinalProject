@@ -54,12 +54,12 @@ public class RatingController {
     // This returns all ratings from the database sorted by rating value (highest to lowest)
 
     @GetMapping("/getRatingsSorted")
-        public List<Rating> getRatingsSorted() {
+        public ResponseEntity<List<Rating>> getRatingsSorted() {
             List<Rating> sortedRatings = ratingService.findAll();
 
-            Collections.sort(sortedRatings);
+            Collections.sort(sortedRatings, Comparator.nullsLast(Comparator.naturalOrder()));
 
-            return sortedRatings;
+            return new ResponseEntity<>(sortedRatings, HttpStatus.OK);
     }
 
     // This returns the average rating for a specific book; the book ISBN needs to be provided in the URI
