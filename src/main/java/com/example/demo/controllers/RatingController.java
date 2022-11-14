@@ -39,7 +39,7 @@ public class RatingController {
             String invalidResponse = "Invalid rating. Try again";
             HttpHeaders responseHeaders = new HttpHeaders();
             responseHeaders.set(message, invalidResponse);
-            return new ResponseEntity<>((Rating) null, responseHeaders, HttpStatus.UNPROCESSABLE_ENTITY);
+            return new ResponseEntity<>(null, responseHeaders, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     // This returns all ratings from the database.
