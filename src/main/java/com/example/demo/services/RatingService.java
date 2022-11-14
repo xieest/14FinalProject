@@ -26,6 +26,10 @@ public class RatingService {
 
     }
 
+    public Rating findByRatingId(int ratingId) {
+        return ratingRepository.findByRatingId(ratingId);
+    }
+
     // Here we rely on the bookRepository to return us a Book object that is then used to find all ratings associated with the book
     public List<Rating> findAllByBook(long bookISBN) {
         try {
