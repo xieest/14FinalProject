@@ -13,9 +13,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.AdditionalAnswers;
 import org.mockito.Mockito;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
@@ -23,6 +25,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -47,61 +50,73 @@ public class RatingControllerJUnitTests {
     @Autowired
     private RatingController ratingController;
 
-    Rating rating1 = new Rating();
-    Rating rating2 = new Rating();
-    Rating rating3 = new Rating();
+    Rating rating4 = new Rating();
+    Rating rating5 = new Rating();
+    Rating rating6 = new Rating();
 
     @BeforeEach
     public void setup() throws IOException {
-
         // A roundabout way to create new ratings that I want to use to test my methods
 
-        rating1 = ratingService.findByRatingId(1);
-        rating1.setRatingId(4);
-        rating1.setRating(4);
-        rating1.setDatestamp(LocalDateTime.now().toString());
-        rating1.setComment("This is the comment for the fourth rating in my test");
+        rating4 = new Rating();
+        rating4.setBook(ratingService.findByRatingId(1).getBook());
+        rating4.setUser(ratingService.findByRatingId(1).getUser());
+        rating4.setRatingId(4);
+        rating4.setRating(4);
+        rating4.setDatestamp(LocalDateTime.now().toString());
+        rating4.setComment("This is the comment for the fourth rating in my test");
+        System.out.println(rating4.getComment());
 
-        rating2 = ratingService.findByRatingId(1);
-        rating2.setRatingId(5);
-        rating2.setRating(5);
-        rating2.setDatestamp(LocalDateTime.now().toString());
-        rating2.setComment("This is the comment for the fifth rating in my test");
+        rating5 = new Rating();
+        rating5.setBook(ratingService.findByRatingId(1).getBook());
+        rating5.setUser(ratingService.findByRatingId(1).getUser());
+        rating5.setRatingId(5);
+        rating5.setRating(5);
+        rating5.setDatestamp(LocalDateTime.now().toString());
+        rating5.setComment("This is the comment for the fifth rating in my test");
+        System.out.println(rating5.getComment());
 
         // This rating will later be used to test the fact that a rating should not be added if it is not between 1 and 5
-        rating3 = ratingService.findByRatingId(1);
-        rating3.setRatingId(6);
-        rating3.setRating(6);
-        rating3.setDatestamp(LocalDateTime.now().toString());
-        rating3.setComment("This is the comment for the sixth rating in my test");
+        rating6 = new Rating();
+        rating6.setBook(ratingService.findByRatingId(1).getBook());
+        rating6.setUser(ratingService.findByRatingId(1).getUser());
+        rating6.setRatingId(6);
+        rating6.setRating(6);
+        rating6.setDatestamp(LocalDateTime.now().toString());
+        rating6.setComment("This is the comment for the sixth rating in my test");
+        System.out.println(rating6.getComment());
     }
 
+
     @Test
+    @Transactional
     void testSaveRating() {
 
-        ResponseEntity<Rating> first = ratingController.saveRating(rating1);
-        System.out.println(first.getStatusCode());
-        System.out.println(first.getBody().getComment());
-        assertThat(first.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+        System.out.println(rating4.getComment());
+        System.out.println(rating4.getRatingId());
+        ResponseEntity<Rating> fourth = ratingController.saveRating(rating4);
+        System.out.println(fourth.getStatusCode());
+        System.out.println(fourth.getBody().getComment());
+        assertThat(fourth.getStatusCode()).isEqualTo(HttpStatus.CREATED);
 
-        ResponseEntity<Rating> second = ratingController.saveRating(rating2);
-        System.out.println(second.getStatusCode());
-        System.out.println(second.getBody().getComment());
-        assertThat(second.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+        ResponseEntity<Rating> fifth = ratingController.saveRating(rating5);
+        System.out.println(fifth.getStatusCode());
+        System.out.println(fifth.getBody().getComment());
+        assertThat(fifth.getStatusCode()).isEqualTo(HttpStatus.CREATED);
 
         // Ensuring that if the rating is not between 1 and 5, the rating controller does not create the resource
-        ResponseEntity<Rating> third = ratingController.saveRating(rating3);
-        System.out.println(third.getStatusCode());
-        assertThat(third.getBody()).isNull();
-        assertThat(third.getStatusCode()).isEqualTo(HttpStatus.UNPROCESSABLE_ENTITY);
+        ResponseEntity<Rating> sixth = ratingController.saveRating(rating6);
+        System.out.println(sixth.getStatusCode());
+        assertThat(sixth.getBody()).isNull();
+        assertThat(sixth.getStatusCode()).isEqualTo(HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
     @Test
     void testGetAllRatings() {
 
-        ratingController.saveRating(rating1);
-        ratingController.saveRating(rating2);
-        ratingController.saveRating(rating3); // As we see later, this rating is invalid and is not saved nor is it retrieved
+        ratingController.saveRating(rating4);
+        ratingController.saveRating(rating5);
+        ratingController.saveRating(rating6); // As we see later, this rating is invalid and is not saved nor is it retrieved
 
         List<Rating> ratings = ratingController.getAllRatings().getBody();
 
@@ -119,9 +134,9 @@ public class RatingControllerJUnitTests {
     @Test
     void testGetRatingsSorted() {
 
-        ratingController.saveRating(rating1);
-        ratingController.saveRating(rating2);
-        ratingController.saveRating(rating3); // As we see later, this rating is invalid and is not saved nor is it retrieved
+        ratingController.saveRating(rating4);
+        ratingController.saveRating(rating5);
+        ratingController.saveRating(rating6); // As we see later, this rating is invalid and is not saved nor is it retrieved
 
         List<Rating> ratings = ratingController.getRatingsSorted().getBody();
 
@@ -140,9 +155,9 @@ public class RatingControllerJUnitTests {
     @Test
     void testFindAverageRatingByBook() {
 
-        ratingController.saveRating(rating1);
-        ratingController.saveRating(rating2);
-        ratingController.saveRating(rating3); // As we see later, this rating is invalid and is not saved nor is it retrieved
+        ratingController.saveRating(rating4);
+        ratingController.saveRating(rating5);
+        ratingController.saveRating(rating6); // As we see later, this rating is invalid and is not saved nor is it retrieved
 
         // Because we provide the dummy data, we know the average rating for this book should be 4.4
 
