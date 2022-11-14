@@ -25,7 +25,7 @@ public class Rating implements java.io.Serializable, Comparable<Rating>{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    private int rating_id;
+    private int ratingId;
 
     @Column(nullable = false)
     private int rating;
