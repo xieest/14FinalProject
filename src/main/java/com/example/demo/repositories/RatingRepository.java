@@ -16,6 +16,7 @@ public interface RatingRepository extends JpaRepository<Rating, Long> {
     // The existing framework is robust; simply naming the method 'findAllByBook' allows Spring / JpaRepository to intuit how the method should work.
     List<Rating> findAllByBook(Book book);
 
+    Rating findByRatingId(int ratingId);
     Rating save(Rating rating);
 
 }
