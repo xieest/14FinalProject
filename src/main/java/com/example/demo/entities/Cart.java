@@ -1,6 +1,7 @@
 package com.example.demo.entities;
 
 import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.LinkedHashSet;
@@ -25,15 +26,16 @@ public class Cart {
     @Column(name = "book_price", nullable = false)
     private double price;
 
-//    @ManyToMany
-//    @JoinTable(name = "cart_books_in_cart",
-//            joinColumns = @JoinColumn(name = "cart_isbn", referencedColumnName = "books_in_cart_isbn"))
-//    private Set<Book> books = new LinkedHashSet<>();
-//
-//    @OneToOne(orphanRemoval = true)
-//    @JoinTable(name = "cart_user",
-//            joinColumns = @JoinColumn(name = "cart_isbn"),
-//            inverseJoinColumns = @JoinColumn(name = "user_username"))
-//    private User user;
+    @OneToOne(orphanRemoval = true)
+    @JoinTable(name = "cart_user",
+            joinColumns = @JoinColumn(name = "cart_isbn"),
+            inverseJoinColumns = @JoinColumn(name = "user_username"))
+    private User user;
+
+    public Cart(long bookISBN, String bookName, double bookPrice) {
+        this.bookISBN = bookISBN;
+        this.name = bookName;
+        this.price = bookPrice;
+    }
 
 }

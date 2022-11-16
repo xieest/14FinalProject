@@ -5,6 +5,8 @@ import com.example.demo.entities.Cart;
 import com.example.demo.repositories.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.List;
 
@@ -31,11 +33,8 @@ public class CartService {
 
     public Cart addToCartByName(Book book){
         try {
-//            String name = inputtedShoppingCart.getName();
-
-            Cart cart = CartRepository.addToCartByName(book);
+            Cart cart = CartRepository.addToCart(book);
             CartRepository.save(cart);
-            System.out.println("Book added to cart");
             return cart;
         } catch (Exception e){
             e.printStackTrace();
@@ -47,18 +46,11 @@ public class CartService {
         return CartRepository.findAll();
     }
 
-    public void removeBookByISBN(long bookISBN){
+    @Transactional
+    public void removeBookByISBN(long ISBN){
         try{
-            CartRepository.removeByBookISBN(bookISBN);
-        }   catch (Exception e) {
-        e.printStackTrace();
-        throw e;
-        }
-    }
-
-    public void removeBookByName(String name){
-        try{
-            CartRepository.deleteByName(name);
+            long deleteBook = CartRepository.deleteByBookISBN(ISBN);
+            assertThat(deleteBook).isEqualTo(1);
         }   catch (Exception e) {
             e.printStackTrace();
             throw e;

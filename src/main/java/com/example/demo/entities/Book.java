@@ -54,9 +54,6 @@ public class Book implements Serializable {
     @JoinColumn(name = "author")
     private Author author;
 
-//    @ManyToMany(mappedBy = "books_in_cart")
-//    private Set<Cart> carts;
-
     @ManyToMany(mappedBy = "books_in_wishlist")
     private Set<Wishlist> wishlists = new HashSet<>();
 

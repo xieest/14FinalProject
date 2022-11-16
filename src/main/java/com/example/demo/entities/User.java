@@ -37,8 +37,8 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<CreditCard> creditCards = new HashSet<>();
 
-//    @OneToOne(fetch=FetchType.LAZY, mappedBy = "user")
-//    private Cart cart;
+    @OneToOne(fetch=FetchType.LAZY, mappedBy = "user")
+    private Cart cart;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
     private Set<Rating> ratings = new HashSet<>();

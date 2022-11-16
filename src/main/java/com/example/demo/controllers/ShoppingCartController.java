@@ -4,6 +4,7 @@ package com.example.demo.controllers;
 import com.example.demo.entities.Cart;
 import com.example.demo.services.BookService;
 import com.example.demo.services.CartService;
+import com.sun.jdi.InvalidTypeException;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/shopping_cart")
+@RequestMapping(value = "/shopping_cart/")
 public class ShoppingCartController {
 
     @Autowired
@@ -23,33 +24,36 @@ public class ShoppingCartController {
 
 
     @ApiOperation(value = "return all shopping carts from database")
-    @GetMapping(value = {"/seeList"})
+    @GetMapping
     public ResponseEntity<List<Cart>> getAllBooks(){
         return new ResponseEntity<>(cartService.seeCart(), HttpStatus.OK);
     }
 
-
-//    @GetMapping("/test")
-//    public String welcome(){
-//        return "This is a test";
-//    }
-
     // In order for it to work,
     // all elements of the book entity must be filled including the book_avg_rating
     @ApiOperation(value = "save new shopping cart to the database")
-    @PostMapping(value = {"/saveToCart"})
-    public ResponseEntity<Cart> add(@RequestParam String bookName){
-        return new ResponseEntity<>(cartService.addToCartByName(bookService.findByBookName(bookName)), HttpStatus.CREATED);
+    @PostMapping(value = {"{ISBN}"})
+    public String add(@PathVariable long ISBN){
+        try {
+            new ResponseEntity<>(cartService.addToCartByName(bookService.findByBookISBN(ISBN)), HttpStatus.CREATED);
+            return ISBN + " added to cart";
+        }catch (NullPointerException e){
+            return "Something went wrong please check that you entered the right ISBN.";
+        }catch (Exception e){
+            return ISBN + " is not available";
+        }
     }
 
-
-    // In progress
     @ApiOperation(value = "remove book from database")
-    @DeleteMapping(value = {"/remove"})
-    public ResponseEntity<Void> removeBooks(@RequestParam String bookName){
-        cartService.removeBookByName(bookName);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    @DeleteMapping(value = {"{ISBN}"})
+    public String removeBooks(@PathVariable long ISBN) {
+        try {
+            cartService.removeBookByISBN(ISBN);
+            return ISBN + " removed from cart";
+        } catch (NullPointerException e) {
+            return "Something went wrong please check that you entered the right ISBN.";
+        } catch (Exception e) {
+            return ISBN + " is not available";
+        }
     }
-
-
 }

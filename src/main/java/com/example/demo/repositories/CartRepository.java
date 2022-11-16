@@ -16,19 +16,11 @@ public interface CartRepository extends JpaRepository<Cart, Long>{
     @Override
     List<Cart> findAll();
 
-//    default Cart addToCartByISNB(long bookISBN){
-//        Book book = findByBookISBN(bookISBN);
-//        Cart cart = new Cart(book.getBookISBN(),book.getBookName(),book.getBookPrice());
-//        return cart;
-//    }
 
-
-    default Cart addToCartByName(Book book){
+    default Cart addToCart(Book book){
         Cart item = new Cart(book.getBookISBN(),book.getBookName(),book.getBookPrice());
         return item;
-
     }
 
-    void removeByBookISBN(long bookISBN);
-    void deleteByName(String name);
+    long deleteByBookISBN(long ISBN);
 }
