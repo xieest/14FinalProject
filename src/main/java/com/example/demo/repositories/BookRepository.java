@@ -11,6 +11,7 @@ import java.util.Set;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
+    /* //xieest original code
     Book findByBookISBN(long bookISBN);
 
     default Set<Rating> findRatingsByBookISBN(long bookISBN) {
@@ -27,4 +28,5 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     }
 
     void deleteByBookISBN(long bookISBN);
+*/
 }

@@ -26,7 +26,15 @@ public class BookController {
     public String getMessage(){
         return "Hello I'm from the controller";
     }
-/* beginning of xieest original code
+
+     //Ed code
+    @RequestMapping(value = "/books", method = RequestMethod.GET)
+    public List<Book> getBooks(){
+        return bookService.getAllBooks();
+    }
+
+/*
+ //beginning of xieest original code
     @ApiOperation(value = "save new book to the database")
     @PostMapping(value = {"", "/"})
     public ResponseEntity<Book> saveBook(@RequestBody Book book) {

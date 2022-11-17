@@ -50,6 +50,7 @@ public class Book implements Serializable {
     @Column(name = "book_avg_rating")
     private double bookAvgRating;
 
+     //xieest original code
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "author")
     private Author author;
