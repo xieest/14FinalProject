@@ -1,9 +1,11 @@
 package com.example.demo.controllers;
 
 
+import com.example.demo.entities.Author;
 import com.example.demo.entities.Book;
 import com.example.demo.entities.Rating;
 import com.example.demo.repositories.BookRepository;
+import com.example.demo.services.AuthorService;
 import com.example.demo.services.BookService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private AuthorService authorService;
+
     @RequestMapping(value = "/message")
     public String getMessage(){
         return "Hello I'm from the controller";
@@ -32,6 +37,29 @@ public class BookController {
     public List<Book> getBooks(){
         return bookService.getAllBooks();
     }
+
+    @RequestMapping(value = "/books/{isbn}", method = RequestMethod.GET)
+    public Book getBookByISBN(@PathVariable long isbn){
+        return bookService.getBookByISBN(isbn);
+    }
+
+    @RequestMapping(value = "/books/save", method = RequestMethod.POST)
+    public void saveBook(@RequestBody Book book){
+        bookService.saveBook(book);
+    }
+
+    @ApiOperation(value = "save new author to the database")
+    @PostMapping(value = {"/author"})
+    public ResponseEntity<Author> saveAuthor(@RequestBody Author author) {
+        return new ResponseEntity<>(authorService.saveAuthor(author), HttpStatus.CREATED);
+    }
+
+    @ApiOperation(value = "return all books from database by its author")
+    @GetMapping("/byAuthor/{authorId}")
+    public ResponseEntity<List<Book>> findBookByBookISBN(@PathVariable int authorId){
+        return new ResponseEntity<>(bookService.findAllByAuthor(authorService.findByAuthorId(authorId)), HttpStatus.OK);
+    }
+
 
 /*
  //beginning of xieest original code

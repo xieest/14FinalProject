@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.entities.Author;
 import com.example.demo.entities.Book;
 import com.example.demo.entities.Rating;
 import com.example.demo.repositories.BookRepository;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -21,6 +23,26 @@ public class BookService {
         List<Book> bookList = new ArrayList<>();
         bookRepository.findAll().forEach(bookList::add);
         return bookList;
+    }
+
+    public Book getBookByISBN(long isbn){
+        Optional<Book> optionalBook = bookRepository.findById(isbn);
+        if(optionalBook.isPresent()){
+            return optionalBook.get();
+        }
+        return null;
+    }
+
+    public void saveBook(Book book){
+        bookRepository.save(book);
+    }
+
+    public List<Book> findAllByAuthor(Author author) {
+        try {
+            return bookRepository.findAllByAuthor(author);
+        } catch (NoSuchElementException e) {
+            throw e;
+        }
     }
 
     /* //Ed code
