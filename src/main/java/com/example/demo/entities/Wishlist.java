@@ -7,7 +7,6 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -26,13 +25,13 @@ public class Wishlist implements Serializable {
     @Column(name="wishlist_name")
     private String wishlist_name;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     @JoinColumn(name = "user")
     private User user;
 
     @ManyToMany
     @JoinTable(
-            name = "books_in_wishlist",
+            name = "books_wisthlist",
             joinColumns = @JoinColumn(name = "wishlist_id"),
             inverseJoinColumns = @JoinColumn(name = "book_ISBN")
     )

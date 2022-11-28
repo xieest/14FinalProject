@@ -6,6 +6,7 @@ import com.example.demo.entities.User;
 import com.example.demo.entities.Wishlist;
 import com.example.demo.repositories.BookRepository;
 import com.example.demo.services.BookService;
+import com.example.demo.services.UserService;
 import com.example.demo.services.WishlistService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +20,13 @@ import java.util.Set;
 
 @RestController
 @RequestMapping(value = "/wishlists")
+
 public class WishlistController {
 
     @Autowired
     private WishlistService wishlistService;
+    @Autowired
+    private UserService userService;
 
     @ApiOperation(value = "save new wishlist to the database")
     @PostMapping(value = "/saveWishlist")
@@ -37,11 +41,10 @@ public class WishlistController {
     }
     */
 
-    @ApiOperation(value = "return all wishlists from database")
-    @GetMapping(value = {"", "/"})
-    public ResponseEntity<List<Wishlist>> getAllWishlists(){
-        return new ResponseEntity<>(wishlistService.findAll(), HttpStatus.OK);
+    @ApiOperation(value = "retrieve wishlists for a user")
+    @GetMapping(value = "/retrieveWishlist/{username}")
+    public ResponseEntity<List<Wishlist>> findWishlistsByUser(@PathVariable String username) {
+        return new ResponseEntity<>(wishlistService.findAllByUser(userService.findByUsername(username)), HttpStatus.CREATED);
     }
-
 
 }

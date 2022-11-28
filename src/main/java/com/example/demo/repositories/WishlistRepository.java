@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Set;
 
 @Repository
-public interface WishlistRepository extends JpaRepository<Wishlist, Long> {
+public interface WishlistRepository extends JpaRepository<Wishlist, Integer> {
     //not ready
     List<Wishlist> findAll();
     List<Wishlist> findAllByUser(User user);
