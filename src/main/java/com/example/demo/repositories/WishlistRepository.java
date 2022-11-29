@@ -13,7 +13,7 @@ import java.util.Set;
 @Repository
 public interface WishlistRepository extends JpaRepository<Wishlist, Integer> {
     //not ready
-    List<Wishlist> findAll();
+   // List<Wishlist> findAll();
     List<Wishlist> findAllByUser(User user);
 
     Wishlist save(Wishlist wishlist);

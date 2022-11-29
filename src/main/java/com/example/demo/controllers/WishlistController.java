@@ -35,7 +35,7 @@ public class WishlistController {
     }
     /*
     @ApiOperation(value = "save new book to wishlist")
-    @PostMapping(value = {"", "/"})
+    @PostMapping(vxalue = {"", "/"})
     public ResponseEntity<Wishlist> saveWishlist(@RequestBody Wishlist wishlist) {
         return new ResponseEntity<>(wishlistService.saveWishlist(wishlist), HttpStatus.CREATED);
     }

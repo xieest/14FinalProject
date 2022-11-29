@@ -17,10 +17,12 @@ import java.util.Set;
 @Table(name = "Wishlists")
 public class Wishlist implements Serializable {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int wishlist_id;
+
 
     @Column(name="wishlist_name")
     private String wishlist_name;
@@ -31,7 +33,7 @@ public class Wishlist implements Serializable {
 
     @ManyToMany
     @JoinTable(
-            name = "books_wisthlist",
+            name = "books_wishlist",
             joinColumns = @JoinColumn(name = "wishlist_id"),
             inverseJoinColumns = @JoinColumn(name = "book_ISBN")
     )
