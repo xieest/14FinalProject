@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,43 +24,48 @@ public class Book implements Serializable {
     @Column(name = "book_position")
     private int bookCataloguePosition;
 
-    @Column(name = "book_name", nullable = false)
+    @Column(name = "book_name")
     private String bookName;
 
     @Column(length = 500, name = "book_description", nullable = false)
     private String bookDescription;
 
-    @Column(name = "book_price", nullable = false)
+    @Column(name = "book_price")
     private double bookPrice;
 
-    @Column(name = "book_author", nullable = false)
+    @Column(name = "book_author")
     private String bookAuthor;
 
-    @Column(name = "book_genre", nullable = false)
+    @Column(name = "book_genre")
     private String bookGenre;
 
-    @Column(name = "book_publisher", nullable = false)
+    @Column(name = "book_publisher")
     private String bookPublisher;
 
-    @Column(name = "book_year", nullable = false)
+    @Column(name = "book_year")
     private int bookYear;
 
-    @Column(name = "books_sold", nullable = false)
+    @Column(name = "books_sold")
     private int booksSold;
 
     @Column(name = "book_avg_rating")
-    private double bookAvgRating;
+    private Double bookAvgRating;
 
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, optional = false)
+    //xieest original code
+    //@JsonIgnore
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "author")
     private Author author;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "books_in_cart")
     private Set<Cart> carts;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "books_in_wishlist")
     private Set<Wishlist> wishlists = new HashSet<>();
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
     private Set<Rating> ratings = new HashSet<>();
 

@@ -26,6 +26,8 @@ public class WishlistController {
     @Autowired
     private WishlistService wishlistService;
     @Autowired
+    private BookService bookService;
+    @Autowired
     private UserService userService;
 
     @ApiOperation(value = "save new wishlist to the database")
@@ -47,4 +49,11 @@ public class WishlistController {
         return new ResponseEntity<>(wishlistService.findAllByUser(userService.findByUsername(username)), HttpStatus.CREATED);
     }
 
+    @ApiOperation(value = "add book to wishlist")
+    @PostMapping(value = "/addBook/{isbn}")
+    public ResponseEntity<Wishlist> addBook(@PathVariable long isbn, @RequestBody String wishlistName) {
+        System.out.println("In controller, isbn: " + bookService.getBookByISBN(isbn).getBookName()+ " wishlist: "+wishlistService.findbyWishlistName(wishlistName).getWishlist_name());
+        return new ResponseEntity<>(wishlistService.addBookToWishlist(bookService.getBookByISBN(isbn), wishlistService.findbyWishlistName(wishlistName)), HttpStatus.CREATED);
+
+    }
 }

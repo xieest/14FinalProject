@@ -1,5 +1,6 @@
 package com.example.demo.repositories;
 
+import com.example.demo.entities.Author;
 import com.example.demo.entities.Book;
 import com.example.demo.entities.Rating;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,13 +12,13 @@ import java.util.Set;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
+    List<Book> findAllByAuthor(Author author);
+    /* //xieest original code
     Book findByBookISBN(long bookISBN);
-
     default Set<Rating> findRatingsByBookISBN(long bookISBN) {
         Book book = findByBookISBN(bookISBN);
         return book.getRatings();
     }
-
     default Book addRatingByBookISBN(long bookISBN, Rating rating) {
         Book book = findByBookISBN(bookISBN);
         Set<Rating> allRatings = book.getRatings();
@@ -25,6 +26,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
         book.setRatings(allRatings);
         return book;
     }
-
     void deleteByBookISBN(long bookISBN);
+*/
 }

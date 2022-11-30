@@ -3,6 +3,7 @@ package com.example.demo.services;
 import com.example.demo.entities.Book;
 import com.example.demo.entities.Wishlist;
 import com.example.demo.entities.User;
+import com.example.demo.repositories.BookRepository;
 import com.example.demo.repositories.WishlistRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,8 @@ import java.util.*;
 public class WishlistService {
     @Autowired
     private WishlistRepository wishlistRepository;
+    @Autowired
+    private BookService bookService;
     private List<Wishlist> wishlists = new ArrayList<Wishlist>();
 
 
@@ -24,7 +27,14 @@ public class WishlistService {
         return wishlistRepository.findAll();
 
     }
+    public Wishlist findbyWishlistName(String wishlist_name){
+        try{
+            return wishlistRepository.findbyWishlistName(wishlist_name);
+        } catch (NoSuchElementException e) {
+            throw e;
+        }
 
+    }
     /*
         public List<Wishlist> findAllByUser(User user) {
             try {
@@ -73,5 +83,25 @@ public class WishlistService {
         }
     }
 
-
+    public Wishlist updateWishlist(Wishlist wishlist){
+        Wishlist oldWishlist = wishlistRepository.findbyWishlistName(wishlist.getWishlist_name());
+        wishlistRepository.delete(oldWishlist);
+        wishlistRepository.save(wishlist);
+        return wishlist;
+    }
+    public Wishlist addBookToWishlist(Book book, Wishlist wishlist){
+        System.out.println("at beginning of service.");
+        Set<Book> booksinwish = wishlist.getBooks_in_wishlist();
+        //System.out.println(book.getBookName());
+        Set<Wishlist>  wishlistsbookisin = book.getWishlists();
+        wishlistsbookisin.add(wishlist);
+        booksinwish.add(book);
+        wishlist.setBooks_in_wishlist(booksinwish);
+        book.setWishlists(wishlistsbookisin);
+        updateWishlist(wishlist);
+        bookService.updateBook(book);
+        //bookService.updateBook(book);
+        System.out.println("at end of service.");
+        return wishlist;
+    }
 }

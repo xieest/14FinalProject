@@ -13,8 +13,21 @@ import java.util.Set;
 @Repository
 public interface WishlistRepository extends JpaRepository<Wishlist, Integer> {
     //not ready
-   // List<Wishlist> findAll();
+    List<Wishlist> findAll();
     List<Wishlist> findAllByUser(User user);
-
     Wishlist save(Wishlist wishlist);
+    void delete(Wishlist wishlist);
+
+    default Wishlist findbyWishlistName(String wishlist_name) {
+        for(int i=0;i<findAll().size();i++){
+            if(findAll().get(i).getWishlist_name().equals(wishlist_name)){
+                return findAll().get(i);
+            }
+        }
+        return null;
+    }
+
+
+
+
 }
