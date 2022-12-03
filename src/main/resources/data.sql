@@ -14,7 +14,7 @@ INSERT INTO booksmanagement.authors (author_first_name, author_last_name, author
 
 INSERT INTO booksmanagement.books (ISBN, book_position, book_name, book_description, book_price, book_author, book_genre, book_publisher, book_year, books_sold, author) VALUES
     (9711161484100, 1, 'The SHRM Essential guide to Employment Law', 'An easy guide to employment law', 12.33, 'Steve Fleischer', 'Education', 'SHRM', 2021, 13045, 1),
-    (9722161484100, 2, 'Criminal Procedure', 'A very easy guide to criminal procedure', 13.44, 'Sean Samaha', 'Legal help', 'Wadsworth', 2020, 30000, 2),
+    (9722161484100, 2, 'Criminal Procedure', 'A very easy guide to criminal procedure', 13.44, ' Sean Samaha', 'Legal help', 'Wadsworth', 2020, 30000, 2),
     (9783161484109, 3, 'Wuthering Heights', 'Emily Bronte records the story of the passionate love between Catherine Earnshaw and the wild Heathcliff', 25, 'Emily Bronte', 'Fiction', 'Penguin Classics', 1848, 3000, 3),
     (9744161484100, 4, 'Nineteen Eightyfour ', 'Popular novel', 4.99, 'George Orwell', 'Fiction', 'Signet Classics', 1984, 10000, 4),
     (9755161484100, 5, 'The Federalist Papers', 'American history', 3.99, 'Charles Kesler', 'History', 'Signet Classics', 1990, 12990, 5),
@@ -28,3 +28,8 @@ INSERT INTO booksmanagement.books (ISBN, book_position, book_name, book_descript
 
 INSERT INTO booksmanagement.users (username, first_name, home_address, last_name, password) VALUES
     ('some_email_here', 'Bob', 'address_here', 'Bob', 'password');
+
+INSERT INTO booksmanagement.ratings (id, rating, comment, datestamp, user, book) VALUES
+    (1, 3, 'This here is the first test comment', '2022-11-13', 'some_email_here', 9711161484100),
+    (2, 5, 'This here is the second test comment', '2022-11-13', 'some_email_here', 9711161484100),
+    (3, 5, 'This here is the third test comment', '2022-11-13', 'some_email_here', 9711161484100);

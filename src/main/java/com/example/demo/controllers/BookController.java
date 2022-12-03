@@ -46,8 +46,6 @@ public class BookController {
         return new ResponseEntity<>(bookService.findByBookISBN(bookISBN), HttpStatus.OK);
     }
 
-
-
     @ApiOperation(value = "update an existing book by its id")
     @PutMapping("/{bookISBN}")
     public ResponseEntity<Book> updateBook(@PathVariable Book book) {

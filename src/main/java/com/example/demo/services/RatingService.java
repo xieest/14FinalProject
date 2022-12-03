@@ -8,6 +8,7 @@ import com.example.demo.repositories.RatingRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -16,35 +17,38 @@ import java.util.NoSuchElementException;
 public class RatingService {
     @Autowired
     private RatingRepository ratingRepository;
+    @Autowired
+    private BookRepository bookRepository;
 
+    // A simple method that returns all ratings in our database, for all books and users
     public List<Rating> findAll(){
 
         return ratingRepository.findAll();
 
     }
 
-    public List<Rating> findAllByBook(Book book) {
+    public Rating findByRatingId(int id){
+        return ratingRepository.findByRatingId(id);
+    }
+
+    // Here we rely on the bookRepository to return us a Book object that is then used to find all ratings associated with the book
+    public List<Rating> findAllByBook(long bookISBN) {
         try {
-            return ratingRepository.findAllByBook(book);
+            return ratingRepository.findAllByBook(bookRepository.findByBookISBN(bookISBN));
         } catch (NoSuchElementException e) {
             throw e;
         }
     }
 
-    public List<Rating> findAllByUser(User user) {
-        try {
-            return ratingRepository.findAllByUser(user);
-        } catch (NoSuchElementException e) {
-            throw e;
-        }
-    }
-
+    // Once a valid rating is provided to this method, it saves the rating in our database
+    @Transactional
     public Rating saveRating(Rating inputtedRating) {
         try {
             Rating rating = new Rating();
-            BeanUtils.copyProperties(inputtedRating, rating); // instead of using many getters and setters; only works if inputtedBook and book has exact same variable names
-            this.ratingRepository.save(rating);
-            System.out.println("Book saved successfully");
+            BeanUtils.copyProperties(inputtedRating, rating); // instead of using many getters and setters; only works if inputtedRating and rating has exact same variable names
+            System.out.println(rating.getComment());
+            this.ratingRepository.saveAndFlush(rating);
+            System.out.println("Rating saved successfully");
             return rating;
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -32,6 +33,7 @@ public class Author implements Serializable {
     @Column(name = "author_publisher")
     private String authorPublisher;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "author")
     private Set<Book> books = new HashSet<>();
 

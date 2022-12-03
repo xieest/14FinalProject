@@ -31,7 +31,7 @@ public class Wishlist implements Serializable {
 
     @ManyToMany
     @JoinTable(
-            name = "books_wishlist",
+            name = "books_wisthlist",
             joinColumns = @JoinColumn(name = "wishlist_id"),
             inverseJoinColumns = @JoinColumn(name = "book_ISBN")
     )
