@@ -26,7 +26,7 @@ public class Cart {
     @Column(name = "book_price", nullable = false)
     private double price;
 
-    @OneToOne(optional = false)
+    @OneToOne(orphanRemoval = true)
     @JoinTable(name = "cart_user",
             joinColumns = @JoinColumn(name = "cart_isbn"),
             inverseJoinColumns = @JoinColumn(name = "user_username"))

@@ -1,437 +1,370 @@
-2022-12-03 14:48:39.947  INFO 10468 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.1 on DESKTOP-1GLSDI2 with PID 10468 (C:\Users\jonat\Documents\GitHub\14FinalProject\target\classes started by jonat in C:\Users\jonat\Documents\GitHub\14FinalProject)
-2022-12-03 14:48:40.084  INFO 10468 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2022-12-03 14:48:59.253  INFO 10468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-03 14:49:02.453  INFO 10468 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2994 ms. Found 3 JPA repository interfaces.
-2022-12-03 14:49:12.617  INFO 10468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-03 14:49:12.727  INFO 10468 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-03 14:49:12.733  INFO 10468 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-03 14:49:14.501  INFO 10468 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-03 14:49:14.504  INFO 10468 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 33605 ms
-2022-12-03 14:49:18.769 DEBUG 10468 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2022-12-03 14:49:19.881  INFO 10468 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-03 14:49:21.348  INFO 10468 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-12-03 14:49:25.551  INFO 10468 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-03 14:49:27.335  INFO 10468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-03 14:49:29.750  INFO 10468 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-03 14:49:30.330  INFO 10468 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2022-12-03 14:49:48.707 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
-2022-12-03 14:49:51.060 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
-2022-12-03 14:49:51.445 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
-2022-12-03 14:49:51.547 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
-2022-12-03 14:49:51.755 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
-2022-12-03 14:49:52.060 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
-2022-12-03 14:49:52.201 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
-2022-12-03 14:49:52.427 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKmfkds8t94ime9x8k28nal2tlc`
-2022-12-03 14:49:52.841 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKrm8effqdjjosqx3omdnxf68nc`
-2022-12-03 14:49:53.096 DEBUG 10468 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
-2022-12-03 14:49:53.599 DEBUG 10468 --- [main] org.hibernate.SQL                        : drop table if exists `books`
-2022-12-03 14:49:53.810 DEBUG 10468 --- [main] org.hibernate.SQL                        : drop table if exists `cart`
-2022-12-03 14:49:53.944 DEBUG 10468 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
-2022-12-03 14:49:54.022 DEBUG 10468 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
-2022-12-03 14:49:54.104 DEBUG 10468 --- [main] org.hibernate.SQL                        : drop table if exists `users`
-2022-12-03 14:49:54.168 DEBUG 10468 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
-2022-12-03 14:49:54.262 DEBUG 10468 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
-2022-12-03 14:49:54.362 DEBUG 10468 --- [main] org.hibernate.SQL                        : drop table if exists `cart_user`
-2022-12-03 14:49:54.457 DEBUG 10468 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 14:49:55.547 DEBUG 10468 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255) not null, `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255) not null, `book_name` varchar(255) not null, `book_price` double precision not null, `book_publisher` varchar(255) not null, `book_year` integer not null, `books_sold` integer not null, `author` integer not null, primary key (`isbn`)) engine=InnoDB
-2022-12-03 14:49:55.828 DEBUG 10468 --- [main] org.hibernate.SQL                        : create table `cart` (`isbn` bigint not null, `book_name` varchar(255) not null, `book_price` double precision not null, primary key (`isbn`)) engine=InnoDB
-2022-12-03 14:49:56.521 DEBUG 10468 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 14:49:57.691 DEBUG 10468 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 14:49:57.905 DEBUG 10468 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
-2022-12-03 14:49:58.090 DEBUG 10468 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 14:49:58.347 DEBUG 10468 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
-2022-12-03 14:49:58.814 DEBUG 10468 --- [main] org.hibernate.SQL                        : create table `cart_user` (`user_username` varchar(255), `cart_isbn` bigint not null, primary key (`cart_isbn`)) engine=InnoDB
-2022-12-03 14:49:59.039 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
-2022-12-03 14:50:00.329 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
-2022-12-03 14:50:00.968 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
-2022-12-03 14:50:01.398 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
-2022-12-03 14:50:01.831 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
-2022-12-03 14:50:02.503 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
-2022-12-03 14:50:02.908 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
-2022-12-03 14:50:03.588 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
-2022-12-03 14:50:04.153 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKmfkds8t94ime9x8k28nal2tlc` foreign key (`user_username`) references `users` (`username`)
-2022-12-03 14:50:04.721 DEBUG 10468 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKrm8effqdjjosqx3omdnxf68nc` foreign key (`cart_isbn`) references `cart` (`isbn`)
-2022-12-03 14:50:05.154  INFO 10468 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-03 14:50:05.210  INFO 10468 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-03 14:50:07.077 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:07.916 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:09.195 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:12.042 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:15.431 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:15.439 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:15.626 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:15.645 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:16.399 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:16.437 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:16.609 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:16.630 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:17.809 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:17.821 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:17.827 DEBUG 10468 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 14:50:18.470  WARN 10468 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-03 14:50:23.998  INFO 10468 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-03 14:50:24.093  INFO 10468 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 111.212 seconds (JVM running for 125.517)
-2022-12-03 14:57:13.281  INFO 10468 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-03 14:57:13.283  INFO 10468 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-03 14:57:13.446  INFO 10468 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 20 ms
-2022-12-03 14:57:14.108  WARN 10468 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-2022-12-03 14:57:14.381 DEBUG 10468 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:57:16.231 DEBUG 10468 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:57:37.983 DEBUG 10468 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:57:39.460 DEBUG 10468 --- [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:57:39.701 DEBUG 10468 --- [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:57:39.708 DEBUG 10468 --- [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:57:41.507 DEBUG 10468 --- [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:57:42.086 DEBUG 10468 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_, book0_.`author` as author12_1_, book0_.`book_author` as book_aut2_1_, book0_.`book_avg_rating` as book_avg3_1_, book0_.`book_position` as book_pos4_1_, book0_.`book_description` as book_des5_1_, book0_.`book_genre` as book_gen6_1_, book0_.`book_name` as book_nam7_1_, book0_.`book_price` as book_pri8_1_, book0_.`book_publisher` as book_pub9_1_, book0_.`book_year` as book_ye10_1_, book0_.`books_sold` as books_s11_1_ from `books` book0_ where book0_.`isbn`=?
-2022-12-03 14:57:43.186 DEBUG 10468 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:59:01.578 DEBUG 10468 --- [http-nio-8080-exec-9] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:59:01.582 DEBUG 10468 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_, book0_.`author` as author12_1_, book0_.`book_author` as book_aut2_1_, book0_.`book_avg_rating` as book_avg3_1_, book0_.`book_position` as book_pos4_1_, book0_.`book_description` as book_des5_1_, book0_.`book_genre` as book_gen6_1_, book0_.`book_name` as book_nam7_1_, book0_.`book_price` as book_pri8_1_, book0_.`book_publisher` as book_pub9_1_, book0_.`book_year` as book_ye10_1_, book0_.`books_sold` as books_s11_1_ from `books` book0_ where book0_.`isbn`=?
-2022-12-03 14:59:01.797 DEBUG 10468 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1497844542<open>)] for JPA transaction
-2022-12-03 14:59:01.799 DEBUG 10468 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
-2022-12-03 14:59:01.812 DEBUG 10468 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@2ed5e8a9]
-2022-12-03 14:59:02.133 DEBUG 10468 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_0_, cart0_.`book_name` as book_nam2_2_0_, cart0_.`book_price` as book_pri3_2_0_, cart0_1_.`user_username` as user_use1_8_0_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
-2022-12-03 14:59:02.265 DEBUG 10468 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
-2022-12-03 14:59:02.266 DEBUG 10468 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1497844542<open>)]
-2022-12-03 14:59:02.545 DEBUG 10468 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : insert into `cart` (`book_name`, `book_price`, `isbn`) values (?, ?, ?)
-2022-12-03 14:59:02.635 DEBUG 10468 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
-2022-12-03 14:59:02.643 DEBUG 10468 --- [http-nio-8080-exec-9] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:59:20.495 DEBUG 10468 --- [http-nio-8080-exec-10] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 14:59:20.501 DEBUG 10468 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(390840232<open>)] for JPA transaction
-2022-12-03 14:59:20.502 DEBUG 10468 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
-2022-12-03 14:59:20.534 DEBUG 10468 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@198c5331]
-2022-12-03 14:59:20.564 DEBUG 10468 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_, cart0_.`book_name` as book_nam2_2_, cart0_.`book_price` as book_pri3_2_, cart0_1_.`user_username` as user_use1_8_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn`
-2022-12-03 14:59:20.577 DEBUG 10468 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
-2022-12-03 14:59:20.578 DEBUG 10468 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(390840232<open>)]
-2022-12-03 14:59:20.582 DEBUG 10468 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
-2022-12-03 14:59:20.803 DEBUG 10468 --- [http-nio-8080-exec-10] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 15:02:25.190 DEBUG 10468 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 15:02:25.194 DEBUG 10468 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_, book0_.`author` as author12_1_, book0_.`book_author` as book_aut2_1_, book0_.`book_avg_rating` as book_avg3_1_, book0_.`book_position` as book_pos4_1_, book0_.`book_description` as book_des5_1_, book0_.`book_genre` as book_gen6_1_, book0_.`book_name` as book_nam7_1_, book0_.`book_price` as book_pri8_1_, book0_.`book_publisher` as book_pub9_1_, book0_.`book_year` as book_ye10_1_, book0_.`books_sold` as books_s11_1_ from `books` book0_ where book0_.`isbn`=?
-2022-12-03 15:02:25.209 DEBUG 10468 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1673893695<open>)] for JPA transaction
-2022-12-03 15:02:25.210 DEBUG 10468 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
-2022-12-03 15:02:25.214 DEBUG 10468 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@542a137e]
-2022-12-03 15:02:25.216 DEBUG 10468 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_0_, cart0_.`book_name` as book_nam2_2_0_, cart0_.`book_price` as book_pri3_2_0_, cart0_1_.`user_username` as user_use1_8_0_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
-2022-12-03 15:02:25.222 DEBUG 10468 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
-2022-12-03 15:02:25.223 DEBUG 10468 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1673893695<open>)]
-2022-12-03 15:02:25.226 DEBUG 10468 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : insert into `cart` (`book_name`, `book_price`, `isbn`) values (?, ?, ?)
-2022-12-03 15:02:25.309 DEBUG 10468 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
-2022-12-03 15:02:25.316 DEBUG 10468 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 15:06:05.964  INFO 10468 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-03 15:06:05.996  INFO 10468 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-03 15:06:06.079  INFO 10468 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-03 15:07:35.238  INFO 18004 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.1 on DESKTOP-1GLSDI2 with PID 18004 (C:\Users\jonat\Documents\GitHub\14FinalProject\target\classes started by jonat in C:\Users\jonat\Documents\GitHub\14FinalProject)
-2022-12-03 15:07:35.259  INFO 18004 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2022-12-03 15:07:43.335  INFO 18004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-03 15:07:43.810  INFO 18004 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 423 ms. Found 3 JPA repository interfaces.
-2022-12-03 15:07:59.835  INFO 18004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-03 15:08:00.073  INFO 18004 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-03 15:08:00.077  INFO 18004 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-03 15:08:03.583  INFO 18004 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-03 15:08:03.598  INFO 18004 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 27808 ms
-2022-12-03 15:08:17.017 DEBUG 18004 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2022-12-03 15:08:17.494  INFO 18004 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-03 15:08:18.585  INFO 18004 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-12-03 15:08:21.622  INFO 18004 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-03 15:08:24.755  INFO 18004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-03 15:08:30.779  INFO 18004 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-03 15:08:31.616  INFO 18004 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2022-12-03 15:08:56.836 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
-2022-12-03 15:08:57.334 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
-2022-12-03 15:08:57.447 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
-2022-12-03 15:08:57.594 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
-2022-12-03 15:08:57.732 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
-2022-12-03 15:08:58.020 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
-2022-12-03 15:09:01.419 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
-2022-12-03 15:09:01.887 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKmfkds8t94ime9x8k28nal2tlc`
-2022-12-03 15:09:01.987 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKrm8effqdjjosqx3omdnxf68nc`
-2022-12-03 15:09:02.112 DEBUG 18004 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
-2022-12-03 15:09:02.406 DEBUG 18004 --- [main] org.hibernate.SQL                        : drop table if exists `books`
-2022-12-03 15:09:02.535 DEBUG 18004 --- [main] org.hibernate.SQL                        : drop table if exists `cart`
-2022-12-03 15:09:02.754 DEBUG 18004 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
-2022-12-03 15:09:02.833 DEBUG 18004 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
-2022-12-03 15:09:03.017 DEBUG 18004 --- [main] org.hibernate.SQL                        : drop table if exists `users`
-2022-12-03 15:09:03.121 DEBUG 18004 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
-2022-12-03 15:09:03.245 DEBUG 18004 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
-2022-12-03 15:09:03.306 DEBUG 18004 --- [main] org.hibernate.SQL                        : drop table if exists `cart_user`
-2022-12-03 15:09:03.409 DEBUG 18004 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 15:09:03.916 DEBUG 18004 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255) not null, `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255) not null, `book_name` varchar(255) not null, `book_price` double precision not null, `book_publisher` varchar(255) not null, `book_year` integer not null, `books_sold` integer not null, `author` integer not null, primary key (`isbn`)) engine=InnoDB
-2022-12-03 15:09:04.268 DEBUG 18004 --- [main] org.hibernate.SQL                        : create table `cart` (`isbn` bigint not null, `book_name` varchar(255) not null, `book_price` double precision not null, primary key (`isbn`)) engine=InnoDB
-2022-12-03 15:09:04.528 DEBUG 18004 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 15:09:05.086 DEBUG 18004 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 15:09:05.280 DEBUG 18004 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
-2022-12-03 15:09:05.570 DEBUG 18004 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 15:09:05.983 DEBUG 18004 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
-2022-12-03 15:09:06.746 DEBUG 18004 --- [main] org.hibernate.SQL                        : create table `cart_user` (`user_username` varchar(255) not null, `cart_isbn` bigint not null, primary key (`cart_isbn`)) engine=InnoDB
-2022-12-03 15:09:07.213 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
-2022-12-03 15:09:07.532 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint UK_qng5gwboxgruoakadn96o2jud unique (`user_username`)
-2022-12-03 15:09:07.775 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
-2022-12-03 15:09:08.264 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
-2022-12-03 15:09:08.938 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
-2022-12-03 15:09:09.506 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
-2022-12-03 15:09:10.363 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
-2022-12-03 15:09:10.845 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
-2022-12-03 15:09:11.473 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
-2022-12-03 15:09:11.808 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKmfkds8t94ime9x8k28nal2tlc` foreign key (`user_username`) references `users` (`username`)
-2022-12-03 15:09:12.139 DEBUG 18004 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKrm8effqdjjosqx3omdnxf68nc` foreign key (`cart_isbn`) references `cart` (`isbn`)
-2022-12-03 15:09:12.668  INFO 18004 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-03 15:09:12.720  INFO 18004 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-03 15:09:13.769 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:14.293 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:17.168 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:18.023 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:18.433 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:18.441 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:18.566 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:18.581 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:18.819 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:18.858 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:18.958 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:18.983 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:19.244 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:19.252 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:19.274 DEBUG 18004 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 15:09:19.805  WARN 18004 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-03 15:09:23.497  INFO 18004 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-03 15:09:23.554  INFO 18004 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 111.937 seconds (JVM running for 116.208)
-2022-12-03 15:48:34.046  WARN 18004 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m2s719ms933µs100ns).
-2022-12-03 15:50:00.510  INFO 18004 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-03 15:50:00.760  INFO 18004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-03 15:50:00.894  INFO 18004 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-03 19:16:26.066  INFO 18020 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.1 on DESKTOP-1GLSDI2 with PID 18020 (C:\Users\jonat\Documents\GitHub\14FinalProject\target\classes started by jonat in C:\Users\jonat\Documents\GitHub\14FinalProject)
-2022-12-03 19:16:26.094  INFO 18020 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
-2022-12-03 19:16:36.012  INFO 18020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-03 19:16:36.683  INFO 18020 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 620 ms. Found 3 JPA repository interfaces.
-2022-12-03 19:16:47.038  INFO 18020 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-03 19:16:47.235  INFO 18020 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-03 19:16:47.238  INFO 18020 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-03 19:16:48.610  INFO 18020 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-03 19:16:48.612  INFO 18020 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 21621 ms
-2022-12-03 19:16:50.509 DEBUG 18020 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
-2022-12-03 19:16:51.126  INFO 18020 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-03 19:16:51.846  INFO 18020 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
-2022-12-03 19:16:54.249  INFO 18020 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-03 19:16:55.681  INFO 18020 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-03 19:16:59.832  INFO 18020 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-03 19:17:00.514  INFO 18020 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
-2022-12-03 19:17:12.340 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
-2022-12-03 19:17:28.952 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
-2022-12-03 19:17:29.987 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
-2022-12-03 19:17:30.615 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
-2022-12-03 19:17:30.801 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
-2022-12-03 19:17:31.750 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
-2022-12-03 19:17:32.023 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
-2022-12-03 19:17:32.453 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKmfkds8t94ime9x8k28nal2tlc`
-2022-12-03 19:17:32.729 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKrm8effqdjjosqx3omdnxf68nc`
-2022-12-03 19:17:32.871 DEBUG 18020 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
-2022-12-03 19:17:33.550 DEBUG 18020 --- [main] org.hibernate.SQL                        : drop table if exists `books`
-2022-12-03 19:17:33.740 DEBUG 18020 --- [main] org.hibernate.SQL                        : drop table if exists `cart`
-2022-12-03 19:17:34.156 DEBUG 18020 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
-2022-12-03 19:17:34.514 DEBUG 18020 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
-2022-12-03 19:17:34.693 DEBUG 18020 --- [main] org.hibernate.SQL                        : drop table if exists `users`
-2022-12-03 19:17:34.845 DEBUG 18020 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
-2022-12-03 19:17:35.074 DEBUG 18020 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
-2022-12-03 19:17:35.304 DEBUG 18020 --- [main] org.hibernate.SQL                        : drop table if exists `cart_user`
-2022-12-03 19:17:35.434 DEBUG 18020 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 19:17:36.520 DEBUG 18020 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255) not null, `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255) not null, `book_name` varchar(255) not null, `book_price` double precision not null, `book_publisher` varchar(255) not null, `book_year` integer not null, `books_sold` integer not null, `author` integer not null, primary key (`isbn`)) engine=InnoDB
-2022-12-03 19:17:36.920 DEBUG 18020 --- [main] org.hibernate.SQL                        : create table `cart` (`isbn` bigint not null, `book_name` varchar(255) not null, `book_price` double precision not null, primary key (`isbn`)) engine=InnoDB
-2022-12-03 19:17:37.143 DEBUG 18020 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 19:17:37.657 DEBUG 18020 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 19:17:37.858 DEBUG 18020 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
-2022-12-03 19:17:38.070 DEBUG 18020 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
-2022-12-03 19:17:38.436 DEBUG 18020 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
-2022-12-03 19:17:38.706 DEBUG 18020 --- [main] org.hibernate.SQL                        : create table `cart_user` (`user_username` varchar(255) not null, `cart_isbn` bigint not null, primary key (`cart_isbn`)) engine=InnoDB
-2022-12-03 19:17:38.981 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
-2022-12-03 19:17:39.563 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint UK_qng5gwboxgruoakadn96o2jud unique (`user_username`)
-2022-12-03 19:17:39.849 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
-2022-12-03 19:17:40.588 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
-2022-12-03 19:17:41.095 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
-2022-12-03 19:17:41.761 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
-2022-12-03 19:17:42.426 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
-2022-12-03 19:17:43.624 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
-2022-12-03 19:17:44.167 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
-2022-12-03 19:17:44.644 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKmfkds8t94ime9x8k28nal2tlc` foreign key (`user_username`) references `users` (`username`)
-2022-12-03 19:17:45.101 DEBUG 18020 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKrm8effqdjjosqx3omdnxf68nc` foreign key (`cart_isbn`) references `cart` (`isbn`)
-2022-12-03 19:17:45.917  INFO 18020 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-03 19:17:46.067  INFO 18020 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-03 19:17:47.142 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:47.787 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:48.790 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:53.000 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:55.487 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:55.494 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:55.575 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:55.584 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:55.798 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:55.808 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:55.865 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:55.873 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:56.086 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:56.091 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:56.098 DEBUG 18020 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
-2022-12-03 19:17:56.961  WARN 18020 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-03 19:18:04.764  INFO 18020 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-03 19:18:04.822  INFO 18020 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 110.517 seconds (JVM running for 124.802)
-2022-12-03 19:20:35.413  INFO 18020 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-03 19:20:35.415  INFO 18020 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-03 19:20:35.425  INFO 18020 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
-2022-12-03 19:20:35.575 DEBUG 18020 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 19:20:36.264 DEBUG 18020 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1239201626<open>)] for JPA transaction
-2022-12-03 19:20:36.273 DEBUG 18020 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
-2022-12-03 19:20:37.709 DEBUG 18020 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@17c6abab]
-2022-12-03 19:20:39.005 DEBUG 18020 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_0_, book0_.`author` as author12_1_0_, book0_.`book_author` as book_aut2_1_0_, book0_.`book_avg_rating` as book_avg3_1_0_, book0_.`book_position` as book_pos4_1_0_, book0_.`book_description` as book_des5_1_0_, book0_.`book_genre` as book_gen6_1_0_, book0_.`book_name` as book_nam7_1_0_, book0_.`book_price` as book_pri8_1_0_, book0_.`book_publisher` as book_pub9_1_0_, book0_.`book_year` as book_ye10_1_0_, book0_.`books_sold` as books_s11_1_0_ from `books` book0_ where book0_.`isbn`=?
-2022-12-03 19:20:40.051  INFO 18020 --- [http-nio-8080-exec-2] o.h.e.internal.DefaultLoadEventListener  : HHH000327: Error performing load command
+2022-12-03 19:59:03.263  INFO 436 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.1 on DESKTOP-1GLSDI2 with PID 436 (C:\Users\jonat\Documents\GitHub\14FinalProject\target\classes started by jonat in C:\Users\jonat\Documents\GitHub\14FinalProject)
+2022-12-03 19:59:03.313  INFO 436 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-12-03 19:59:08.915  INFO 436 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-03 19:59:09.672  INFO 436 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 688 ms. Found 3 JPA repository interfaces.
+2022-12-03 19:59:16.370  INFO 436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-03 19:59:16.611  INFO 436 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-03 19:59:16.614  INFO 436 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-03 19:59:18.034  INFO 436 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-03 19:59:18.036  INFO 436 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 14258 ms
+2022-12-03 19:59:19.746 DEBUG 436 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2022-12-03 19:59:20.235  INFO 436 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-03 19:59:21.426  INFO 436 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-12-03 19:59:23.183  INFO 436 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-03 19:59:24.551  INFO 436 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-03 19:59:25.843  INFO 436 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-03 19:59:26.372  INFO 436 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-12-03 19:59:32.725 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
+2022-12-03 19:59:34.375 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
+2022-12-03 19:59:35.558 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
+2022-12-03 19:59:36.037 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
+2022-12-03 19:59:36.140 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
+2022-12-03 19:59:36.258 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
+2022-12-03 19:59:36.432 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
+2022-12-03 19:59:36.576 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKmfkds8t94ime9x8k28nal2tlc`
+2022-12-03 19:59:36.814 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKrm8effqdjjosqx3omdnxf68nc`
+2022-12-03 19:59:37.207 DEBUG 436 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
+2022-12-03 19:59:37.384 DEBUG 436 --- [main] org.hibernate.SQL                        : drop table if exists `books`
+2022-12-03 19:59:37.545 DEBUG 436 --- [main] org.hibernate.SQL                        : drop table if exists `cart`
+2022-12-03 19:59:37.651 DEBUG 436 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
+2022-12-03 19:59:37.743 DEBUG 436 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
+2022-12-03 19:59:37.858 DEBUG 436 --- [main] org.hibernate.SQL                        : drop table if exists `users`
+2022-12-03 19:59:38.197 DEBUG 436 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
+2022-12-03 19:59:38.272 DEBUG 436 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
+2022-12-03 19:59:38.460 DEBUG 436 --- [main] org.hibernate.SQL                        : drop table if exists `cart_user`
+2022-12-03 19:59:38.531 DEBUG 436 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 19:59:38.857 DEBUG 436 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255) not null, `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255) not null, `book_name` varchar(255) not null, `book_price` double precision not null, `book_publisher` varchar(255) not null, `book_year` integer not null, `books_sold` integer not null, `author` integer not null, primary key (`isbn`)) engine=InnoDB
+2022-12-03 19:59:39.177 DEBUG 436 --- [main] org.hibernate.SQL                        : create table `cart` (`isbn` bigint not null, `book_name` varchar(255) not null, `book_price` double precision not null, primary key (`isbn`)) engine=InnoDB
+2022-12-03 19:59:39.458 DEBUG 436 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 19:59:39.693 DEBUG 436 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 19:59:39.965 DEBUG 436 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
+2022-12-03 19:59:40.315 DEBUG 436 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 19:59:40.521 DEBUG 436 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
+2022-12-03 19:59:40.715 DEBUG 436 --- [main] org.hibernate.SQL                        : create table `cart_user` (`user_username` varchar(255), `cart_isbn` bigint not null, primary key (`cart_isbn`)) engine=InnoDB
+2022-12-03 19:59:41.043 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
+2022-12-03 19:59:41.351 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
+2022-12-03 19:59:42.138 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
+2022-12-03 19:59:43.286 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
+2022-12-03 19:59:43.787 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
+2022-12-03 19:59:45.601 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
+2022-12-03 19:59:46.311 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
+2022-12-03 19:59:46.673 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
+2022-12-03 19:59:47.125 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKmfkds8t94ime9x8k28nal2tlc` foreign key (`user_username`) references `users` (`username`)
+2022-12-03 19:59:47.607 DEBUG 436 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKrm8effqdjjosqx3omdnxf68nc` foreign key (`cart_isbn`) references `cart` (`isbn`)
+2022-12-03 19:59:47.934  INFO 436 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-03 19:59:47.979  INFO 436 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-03 19:59:48.794 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:49.168 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:49.956 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:50.520 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:50.847 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:50.865 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:50.968 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:50.974 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:51.245 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:51.255 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:51.314 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:51.322 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:51.703 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:51.713 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:51.737 DEBUG 436 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 19:59:52.289  WARN 436 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-03 19:59:55.110  INFO 436 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-03 19:59:55.164  INFO 436 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 55.217 seconds (JVM running for 58.88)
+2022-12-03 20:00:07.099  INFO 8596 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.1 on DESKTOP-1GLSDI2 with PID 8596 (C:\Users\jonat\Documents\GitHub\14FinalProject\target\classes started by jonat in C:\Users\jonat\Documents\GitHub\14FinalProject)
+2022-12-03 20:00:07.115  INFO 8596 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-12-03 20:00:12.385  INFO 8596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-03 20:00:12.792  INFO 8596 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 349 ms. Found 3 JPA repository interfaces.
+2022-12-03 20:00:16.787  INFO 8596 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-03 20:00:16.847  INFO 8596 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-03 20:00:16.850  INFO 8596 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-03 20:00:17.697  INFO 8596 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-03 20:00:17.699  INFO 8596 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 10176 ms
+2022-12-03 20:00:18.723 DEBUG 8596 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2022-12-03 20:00:18.848  INFO 8596 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-03 20:00:19.335  INFO 8596 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-12-03 20:00:20.491  INFO 8596 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-03 20:00:21.162  INFO 8596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-03 20:00:22.660  INFO 8596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-03 20:00:22.773  INFO 8596 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-12-03 20:00:27.519 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
+2022-12-03 20:00:27.871 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
+2022-12-03 20:00:27.984 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
+2022-12-03 20:00:28.185 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
+2022-12-03 20:00:28.535 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
+2022-12-03 20:00:30.452 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
+2022-12-03 20:00:30.643 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
+2022-12-03 20:00:31.084 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKmfkds8t94ime9x8k28nal2tlc`
+2022-12-03 20:00:31.370 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKrm8effqdjjosqx3omdnxf68nc`
+2022-12-03 20:00:31.515 DEBUG 8596 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
+2022-12-03 20:00:31.822 DEBUG 8596 --- [main] org.hibernate.SQL                        : drop table if exists `books`
+2022-12-03 20:00:31.997 DEBUG 8596 --- [main] org.hibernate.SQL                        : drop table if exists `cart`
+2022-12-03 20:00:32.303 DEBUG 8596 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
+2022-12-03 20:00:32.628 DEBUG 8596 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
+2022-12-03 20:00:32.908 DEBUG 8596 --- [main] org.hibernate.SQL                        : drop table if exists `users`
+2022-12-03 20:00:33.107 DEBUG 8596 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
+2022-12-03 20:00:33.376 DEBUG 8596 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
+2022-12-03 20:00:33.594 DEBUG 8596 --- [main] org.hibernate.SQL                        : drop table if exists `cart_user`
+2022-12-03 20:00:33.960 DEBUG 8596 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 20:00:34.887 DEBUG 8596 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255) not null, `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255) not null, `book_name` varchar(255) not null, `book_price` double precision not null, `book_publisher` varchar(255) not null, `book_year` integer not null, `books_sold` integer not null, `author` integer not null, primary key (`isbn`)) engine=InnoDB
+2022-12-03 20:00:35.843 DEBUG 8596 --- [main] org.hibernate.SQL                        : create table `cart` (`isbn` bigint not null, `book_name` varchar(255) not null, `book_price` double precision not null, primary key (`isbn`)) engine=InnoDB
+2022-12-03 20:00:37.038 DEBUG 8596 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 20:00:37.484 DEBUG 8596 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 20:00:38.292 DEBUG 8596 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
+2022-12-03 20:00:38.770 DEBUG 8596 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 20:00:39.248 DEBUG 8596 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
+2022-12-03 20:00:39.658 DEBUG 8596 --- [main] org.hibernate.SQL                        : create table `cart_user` (`user_username` varchar(255), `cart_isbn` bigint not null, primary key (`cart_isbn`)) engine=InnoDB
+2022-12-03 20:00:40.112 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
+2022-12-03 20:00:40.318 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
+2022-12-03 20:00:41.029 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
+2022-12-03 20:00:41.638 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
+2022-12-03 20:00:42.219 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
+2022-12-03 20:00:42.683 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
+2022-12-03 20:00:43.551 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
+2022-12-03 20:00:44.216 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
+2022-12-03 20:00:45.128 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKmfkds8t94ime9x8k28nal2tlc` foreign key (`user_username`) references `users` (`username`)
+2022-12-03 20:00:45.714 DEBUG 8596 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKrm8effqdjjosqx3omdnxf68nc` foreign key (`cart_isbn`) references `cart` (`isbn`)
+2022-12-03 20:00:46.488  INFO 8596 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-03 20:00:46.535  INFO 8596 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-03 20:00:47.642 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:47.999 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:48.792 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:49.531 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:49.830 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:49.844 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:49.931 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:49.939 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:50.178 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:50.196 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:50.251 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:50.259 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:50.418 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:50.441 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:50.457 DEBUG 8596 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:00:50.831  WARN 8596 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-03 20:00:53.422  WARN 8596 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2022-12-03 20:00:53.433  INFO 8596 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-03 20:00:53.690  INFO 8596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-03 20:00:53.834  INFO 8596 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-03 20:00:53.847  INFO 8596 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-12-03 20:00:53.944  INFO 8596 --- [main] ConditionEvaluationReportLoggingListener : 
 
-org.hibernate.PropertyAccessException: Null value was assigned to a property [class com.example.demo.entities.Book.bookAvgRating] of primitive type setter of com.example.demo.entities.Book.bookAvgRating
-	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:58) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tuple.entity.AbstractEntityTuplizer.setPropertyValues(AbstractEntityTuplizer.java:681) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.tuple.entity.PojoEntityTuplizer.setPropertyValues(PojoEntityTuplizer.java:144) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.persister.entity.AbstractEntityPersister.setPropertyValues(AbstractEntityPersister.java:5252) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntityFromEntityEntryLoadedState(TwoPhaseLoad.java:253) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntity(TwoPhaseLoad.java:156) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.engine.internal.TwoPhaseLoad.initializeEntity(TwoPhaseLoad.java:126) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.performTwoPhaseLoad(AbstractRowReader.java:221) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.loader.plan.exec.process.internal.AbstractRowReader.finishUp(AbstractRowReader.java:187) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl.extractResults(ResultSetProcessorImpl.java:96) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.loader.plan.exec.internal.AbstractLoadPlanBasedLoader.executeLoad(AbstractLoadPlanBasedLoader.java:105) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader.load(AbstractLoadPlanBasedEntityLoader.java:285) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4521) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4511) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:327) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:108) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1231) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1220) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionImpl.access$2100(SessionImpl.java:202) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2835) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.lambda$load$1(SessionImpl.java:2812) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.perform(SessionImpl.java:2768) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2812) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3400) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:3367) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:362) ~[spring-orm-5.3.22.jar:5.3.22]
-	at jdk.proxy2/jdk.proxy2.$Proxy110.find(Unknown Source) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-5.3.22.jar:5.3.22]
-	at jdk.proxy2/jdk.proxy2.$Proxy110.find(Unknown Source) ~[na:na]
-	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:335) ~[spring-data-jpa-2.7.2.jar:2.7.2]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.7.2.jar:2.7.2]
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.7.2.jar:2.7.2]
-	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.7.2.jar:2.7.2]
-	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:530) ~[spring-data-commons-2.7.2.jar:2.7.2]
-	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:286) ~[spring-data-commons-2.7.2.jar:2.7.2]
-	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:640) ~[spring-data-commons-2.7.2.jar:2.7.2]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:164) ~[spring-data-commons-2.7.2.jar:2.7.2]
-	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:139) ~[spring-data-commons-2.7.2.jar:2.7.2]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
-	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:81) ~[spring-data-commons-2.7.2.jar:2.7.2]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
-	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.22.jar:5.3.22]
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.22.jar:5.3.22]
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.22.jar:5.3.22]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
-	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.22.jar:5.3.22]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
-	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.7.2.jar:2.7.2]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
-	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.22.jar:5.3.22]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.22.jar:5.3.22]
-	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.22.jar:5.3.22]
-	at jdk.proxy2/jdk.proxy2.$Proxy114.findById(Unknown Source) ~[na:na]
-	at com.example.demo.services.BookService.getBookByISBN(BookService.java:28) ~[classes/:na]
-	at com.example.demo.controllers.ShoppingCartController.add(ShoppingCartController.java:38) ~[classes/:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.22.jar:5.3.22]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1070) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.22.jar:5.3.22]
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.22.jar:5.3.22]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.22.jar:5.3.22]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.22.jar:5.3.22]
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.22.jar:5.3.22]
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
-	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
-Caused by: java.lang.IllegalArgumentException: Can not set double field com.example.demo.entities.Book.bookAvgRating to null value
-	at java.base/jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:167) ~[na:na]
-	at java.base/jdk.internal.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(UnsafeFieldAccessorImpl.java:171) ~[na:na]
-	at java.base/jdk.internal.reflect.UnsafeDoubleFieldAccessorImpl.set(UnsafeDoubleFieldAccessorImpl.java:80) ~[na:na]
-	at java.base/java.lang.reflect.Field.set(Field.java:799) ~[na:na]
-	at org.hibernate.property.access.spi.SetterFieldImpl.set(SetterFieldImpl.java:52) ~[hibernate-core-5.6.10.Final.jar:5.6.10.Final]
-	... 122 common frames omitted
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-12-03 20:00:55.703 ERROR 8596 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
 
-2022-12-03 19:20:40.131 DEBUG 18020 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction rollback
-2022-12-03 19:20:40.132 DEBUG 18020 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Rolling back JPA transaction on EntityManager [SessionImpl(1239201626<open>)]
-2022-12-03 19:20:40.231 DEBUG 18020 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
-2022-12-03 19:20:40.706 DEBUG 18020 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 19:23:27.959 DEBUG 18020 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 19:23:27.966 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(11434851<open>)] for JPA transaction
-2022-12-03 19:23:27.967 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
-2022-12-03 19:23:27.971 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@e699506]
-2022-12-03 19:23:27.972 DEBUG 18020 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_0_, book0_.`author` as author12_1_0_, book0_.`book_author` as book_aut2_1_0_, book0_.`book_avg_rating` as book_avg3_1_0_, book0_.`book_position` as book_pos4_1_0_, book0_.`book_description` as book_des5_1_0_, book0_.`book_genre` as book_gen6_1_0_, book0_.`book_name` as book_nam7_1_0_, book0_.`book_price` as book_pri8_1_0_, book0_.`book_publisher` as book_pub9_1_0_, book0_.`book_year` as book_ye10_1_0_, book0_.`books_sold` as books_s11_1_0_ from `books` book0_ where book0_.`isbn`=?
-2022-12-03 19:23:27.994 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
-2022-12-03 19:23:27.996 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(11434851<open>)]
-2022-12-03 19:23:28.001 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
-2022-12-03 19:23:28.143 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(11434851<open>)] for JPA transaction
-2022-12-03 19:23:28.151 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
-2022-12-03 19:23:28.154 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@655d7aa9]
-2022-12-03 19:23:28.404 DEBUG 18020 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_0_, cart0_.`book_name` as book_nam2_2_0_, cart0_.`book_price` as book_pri3_2_0_, cart0_1_.`user_username` as user_use1_8_0_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
-2022-12-03 19:23:28.548 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction rollback
-2022-12-03 19:23:28.549 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Rolling back JPA transaction on EntityManager [SessionImpl(11434851<open>)]
-2022-12-03 19:23:28.552 DEBUG 18020 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
-2022-12-03 19:23:28.641 DEBUG 18020 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
-2022-12-03 19:24:03.448  INFO 18020 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-03 19:24:03.520  INFO 18020 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-03 19:24:03.621  INFO 18020 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2022-12-03 20:02:27.188  INFO 436 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-12-03 20:02:27.243  INFO 436 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-12-03 20:02:27.303  INFO 436 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-12-03 20:05:01.454  INFO 14712 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 17.0.1 on DESKTOP-1GLSDI2 with PID 14712 (C:\Users\jonat\Documents\GitHub\14FinalProject\target\classes started by jonat in C:\Users\jonat\Documents\GitHub\14FinalProject)
+2022-12-03 20:05:01.472  INFO 14712 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2022-12-03 20:05:05.989  INFO 14712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-12-03 20:05:06.369  INFO 14712 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 322 ms. Found 3 JPA repository interfaces.
+2022-12-03 20:05:10.222  INFO 14712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-12-03 20:05:10.433  INFO 14712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-12-03 20:05:10.440  INFO 14712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2022-12-03 20:05:11.333  INFO 14712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-12-03 20:05:11.335  INFO 14712 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 9560 ms
+2022-12-03 20:05:14.831 DEBUG 14712 --- [main] j.LocalContainerEntityManagerFactoryBean : Building JPA container EntityManagerFactory for persistence unit 'default'
+2022-12-03 20:05:15.170  INFO 14712 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-12-03 20:05:16.887  INFO 14712 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-12-03 20:05:18.923  INFO 14712 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-12-03 20:05:19.894  INFO 14712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-12-03 20:05:21.580  INFO 14712 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-12-03 20:05:21.768  INFO 14712 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-12-03 20:05:29.992 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `books` drop foreign key `FK8xoortjcp75twd65cs60988k1`
+2022-12-03 20:05:31.547 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `credit_cards` drop foreign key `FK6sqi1kl1atyul7tqs7hg24m8m`
+2022-12-03 20:05:31.796 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FK1j2quo4m0s72jyxq0cjfei77b`
+2022-12-03 20:05:31.904 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `ratings` drop foreign key `FKcyrbg9e30rvbqh1d446bt35ts`
+2022-12-03 20:05:32.017 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `wishlists` drop foreign key `FKkanb55hlq1v9yc08uubqdi72o`
+2022-12-03 20:05:32.195 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FK2idv1tdgvums8dg80kf3sxr7j`
+2022-12-03 20:05:32.313 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` drop foreign key `FKimlkw7ul2m579ouwddxj88dtv`
+2022-12-03 20:05:32.386 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKmfkds8t94ime9x8k28nal2tlc`
+2022-12-03 20:05:32.539 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `cart_user` drop foreign key `FKrm8effqdjjosqx3omdnxf68nc`
+2022-12-03 20:05:32.728 DEBUG 14712 --- [main] org.hibernate.SQL                        : drop table if exists `authors`
+2022-12-03 20:05:32.877 DEBUG 14712 --- [main] org.hibernate.SQL                        : drop table if exists `books`
+2022-12-03 20:05:33.049 DEBUG 14712 --- [main] org.hibernate.SQL                        : drop table if exists `cart`
+2022-12-03 20:05:33.253 DEBUG 14712 --- [main] org.hibernate.SQL                        : drop table if exists `credit_cards`
+2022-12-03 20:05:33.383 DEBUG 14712 --- [main] org.hibernate.SQL                        : drop table if exists `ratings`
+2022-12-03 20:05:33.454 DEBUG 14712 --- [main] org.hibernate.SQL                        : drop table if exists `users`
+2022-12-03 20:05:33.546 DEBUG 14712 --- [main] org.hibernate.SQL                        : drop table if exists `wishlists`
+2022-12-03 20:05:33.787 DEBUG 14712 --- [main] org.hibernate.SQL                        : drop table if exists `books_wishlist`
+2022-12-03 20:05:33.843 DEBUG 14712 --- [main] org.hibernate.SQL                        : drop table if exists `cart_user`
+2022-12-03 20:05:33.963 DEBUG 14712 --- [main] org.hibernate.SQL                        : create table `authors` (`id` integer not null auto_increment, `author_biography` varchar(500) not null, `author_first_name` varchar(255) not null, `author_last_name` varchar(255) not null, `author_publisher` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 20:05:34.168 DEBUG 14712 --- [main] org.hibernate.SQL                        : create table `books` (`isbn` bigint not null, `book_author` varchar(255) not null, `book_avg_rating` double precision, `book_position` integer, `book_description` varchar(500) not null, `book_genre` varchar(255) not null, `book_name` varchar(255) not null, `book_price` double precision not null, `book_publisher` varchar(255) not null, `book_year` integer not null, `books_sold` integer not null, `author` integer not null, primary key (`isbn`)) engine=InnoDB
+2022-12-03 20:05:34.345 DEBUG 14712 --- [main] org.hibernate.SQL                        : create table `cart` (`isbn` bigint not null, `book_name` varchar(255) not null, `book_price` double precision not null, primary key (`isbn`)) engine=InnoDB
+2022-12-03 20:05:34.483 DEBUG 14712 --- [main] org.hibernate.SQL                        : create table `credit_cards` (`id` integer not null auto_increment, `card_number` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 20:05:34.900 DEBUG 14712 --- [main] org.hibernate.SQL                        : create table `ratings` (`id` integer not null auto_increment, `comment` varchar(255), `datestamp` datetime, `rating` integer not null, `book` bigint not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 20:05:35.045 DEBUG 14712 --- [main] org.hibernate.SQL                        : create table `users` (`username` varchar(255) not null, `first_name` varchar(255), `home_address` varchar(255), `last_name` varchar(255), `password` varchar(255) not null, primary key (`username`)) engine=InnoDB
+2022-12-03 20:05:35.211 DEBUG 14712 --- [main] org.hibernate.SQL                        : create table `wishlists` (`id` integer not null auto_increment, `wishlist_name` varchar(255) not null, `user` varchar(255) not null, primary key (`id`)) engine=InnoDB
+2022-12-03 20:05:35.334 DEBUG 14712 --- [main] org.hibernate.SQL                        : create table `books_wishlist` (`wishlist_id` integer not null, `book_isbn` bigint not null, primary key (`wishlist_id`, `book_isbn`)) engine=InnoDB
+2022-12-03 20:05:35.478 DEBUG 14712 --- [main] org.hibernate.SQL                        : create table `cart_user` (`user_username` varchar(255), `cart_isbn` bigint not null, primary key (`cart_isbn`)) engine=InnoDB
+2022-12-03 20:05:35.613 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint UK_rsfixpi1crklj327162ylmq5h unique (`card_number`)
+2022-12-03 20:05:35.804 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `books` add constraint `FK8xoortjcp75twd65cs60988k1` foreign key (`author`) references `authors` (`id`)
+2022-12-03 20:05:36.160 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `credit_cards` add constraint `FK6sqi1kl1atyul7tqs7hg24m8m` foreign key (`user`) references `users` (`username`)
+2022-12-03 20:05:36.443 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FK1j2quo4m0s72jyxq0cjfei77b` foreign key (`book`) references `books` (`isbn`)
+2022-12-03 20:05:36.783 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `ratings` add constraint `FKcyrbg9e30rvbqh1d446bt35ts` foreign key (`user`) references `users` (`username`)
+2022-12-03 20:05:37.127 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `wishlists` add constraint `FKkanb55hlq1v9yc08uubqdi72o` foreign key (`user`) references `users` (`username`)
+2022-12-03 20:05:37.550 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FK2idv1tdgvums8dg80kf3sxr7j` foreign key (`book_isbn`) references `books` (`isbn`)
+2022-12-03 20:05:37.927 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `books_wishlist` add constraint `FKimlkw7ul2m579ouwddxj88dtv` foreign key (`wishlist_id`) references `wishlists` (`id`)
+2022-12-03 20:05:38.203 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKmfkds8t94ime9x8k28nal2tlc` foreign key (`user_username`) references `users` (`username`)
+2022-12-03 20:05:38.515 DEBUG 14712 --- [main] org.hibernate.SQL                        : alter table `cart_user` add constraint `FKrm8effqdjjosqx3omdnxf68nc` foreign key (`cart_isbn`) references `cart` (`isbn`)
+2022-12-03 20:05:38.963  INFO 14712 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-12-03 20:05:39.006  INFO 14712 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-12-03 20:05:39.585 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:39.881 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:40.507 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.083 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.376 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.388 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.463 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.470 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.640 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.652 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.702 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.711 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.844 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.864 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:41.880 DEBUG 14712 --- [main] tor$SharedEntityManagerInvocationHandler : Creating new EntityManager for shared EntityManager invocation
+2022-12-03 20:05:42.224  WARN 14712 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-12-03 20:05:44.389  INFO 14712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-12-03 20:05:44.447  INFO 14712 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 45.59 seconds (JVM running for 48.623)
+2022-12-03 20:07:10.535  INFO 14712 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-12-03 20:07:10.537  INFO 14712 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2022-12-03 20:07:10.542  INFO 14712 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2022-12-03 20:07:10.677 DEBUG 14712 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:07:12.119 DEBUG 14712 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_, book0_.`author` as author12_1_, book0_.`book_author` as book_aut2_1_, book0_.`book_avg_rating` as book_avg3_1_, book0_.`book_position` as book_pos4_1_, book0_.`book_description` as book_des5_1_, book0_.`book_genre` as book_gen6_1_, book0_.`book_name` as book_nam7_1_, book0_.`book_price` as book_pri8_1_, book0_.`book_publisher` as book_pub9_1_, book0_.`book_year` as book_ye10_1_, book0_.`books_sold` as books_s11_1_ from `books` book0_ where book0_.`isbn`=?
+2022-12-03 20:07:12.653 DEBUG 14712 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:07:37.273 DEBUG 14712 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:07:37.278 DEBUG 14712 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_, book0_.`author` as author12_1_, book0_.`book_author` as book_aut2_1_, book0_.`book_avg_rating` as book_avg3_1_, book0_.`book_position` as book_pos4_1_, book0_.`book_description` as book_des5_1_, book0_.`book_genre` as book_gen6_1_, book0_.`book_name` as book_nam7_1_, book0_.`book_price` as book_pri8_1_, book0_.`book_publisher` as book_pub9_1_, book0_.`book_year` as book_ye10_1_, book0_.`books_sold` as books_s11_1_ from `books` book0_ where book0_.`isbn`=?
+2022-12-03 20:07:37.468 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1131584953<open>)] for JPA transaction
+2022-12-03 20:07:37.469 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2022-12-03 20:07:37.481 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@106507c8]
+2022-12-03 20:07:37.601 DEBUG 14712 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_0_, cart0_.`book_name` as book_nam2_2_0_, cart0_.`book_price` as book_pri3_2_0_, cart0_1_.`user_username` as user_use1_8_0_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
+2022-12-03 20:07:37.647 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:07:37.651 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1131584953<open>)]
+2022-12-03 20:07:37.735 DEBUG 14712 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : insert into `cart` (`book_name`, `book_price`, `isbn`) values (?, ?, ?)
+2022-12-03 20:07:37.786 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:07:37.794 DEBUG 14712 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:08:20.931 DEBUG 14712 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:08:20.935 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(575974116<open>)] for JPA transaction
+2022-12-03 20:08:20.937 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.example.demo.services.CartService.removeBookByISBN]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2022-12-03 20:08:20.943 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@266b2a76]
+2022-12-03 20:08:20.964 DEBUG 14712 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_, cart0_.`book_name` as book_nam2_2_, cart0_.`book_price` as book_pri3_2_, cart0_1_.`user_username` as user_use1_8_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
+2022-12-03 20:08:21.529 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:08:21.531 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(575974116<open>)]
+2022-12-03 20:08:21.532 DEBUG 14712 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : delete from `cart_user` where `cart_isbn`=?
+2022-12-03 20:08:21.561 DEBUG 14712 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : delete from `cart` where `isbn`=?
+2022-12-03 20:08:21.619 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:08:21.625 DEBUG 14712 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:08:30.119 DEBUG 14712 --- [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:08:30.122 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(216430616<open>)] for JPA transaction
+2022-12-03 20:08:30.123 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2022-12-03 20:08:30.125 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@22187f4]
+2022-12-03 20:08:30.161 DEBUG 14712 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_, cart0_.`book_name` as book_nam2_2_, cart0_.`book_price` as book_pri3_2_, cart0_1_.`user_username` as user_use1_8_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn`
+2022-12-03 20:08:30.163 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:08:30.164 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(216430616<open>)]
+2022-12-03 20:08:30.165 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:08:31.414 DEBUG 14712 --- [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:10:19.904 DEBUG 14712 --- [http-nio-8080-exec-8] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:10:19.985 DEBUG 14712 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_, book0_.`author` as author12_1_, book0_.`book_author` as book_aut2_1_, book0_.`book_avg_rating` as book_avg3_1_, book0_.`book_position` as book_pos4_1_, book0_.`book_description` as book_des5_1_, book0_.`book_genre` as book_gen6_1_, book0_.`book_name` as book_nam7_1_, book0_.`book_price` as book_pri8_1_, book0_.`book_publisher` as book_pub9_1_, book0_.`book_year` as book_ye10_1_, book0_.`books_sold` as books_s11_1_ from `books` book0_ where book0_.`isbn`=?
+2022-12-03 20:10:20.055 DEBUG 14712 --- [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1508026361<open>)] for JPA transaction
+2022-12-03 20:10:20.055 DEBUG 14712 --- [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2022-12-03 20:10:20.058 DEBUG 14712 --- [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5696f893]
+2022-12-03 20:10:20.060 DEBUG 14712 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_0_, cart0_.`book_name` as book_nam2_2_0_, cart0_.`book_price` as book_pri3_2_0_, cart0_1_.`user_username` as user_use1_8_0_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
+2022-12-03 20:10:20.071 DEBUG 14712 --- [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:10:20.072 DEBUG 14712 --- [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1508026361<open>)]
+2022-12-03 20:10:20.075 DEBUG 14712 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : insert into `cart` (`book_name`, `book_price`, `isbn`) values (?, ?, ?)
+2022-12-03 20:10:20.162 DEBUG 14712 --- [http-nio-8080-exec-8] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:10:20.169 DEBUG 14712 --- [http-nio-8080-exec-8] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:11:04.554 DEBUG 14712 --- [http-nio-8080-exec-9] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:11:04.557 DEBUG 14712 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1109897627<open>)] for JPA transaction
+2022-12-03 20:11:04.558 DEBUG 14712 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2022-12-03 20:11:04.562 DEBUG 14712 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@4ce057af]
+2022-12-03 20:11:04.564 DEBUG 14712 --- [http-nio-8080-exec-9] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_, cart0_.`book_name` as book_nam2_2_, cart0_.`book_price` as book_pri3_2_, cart0_1_.`user_username` as user_use1_8_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn`
+2022-12-03 20:11:04.574 DEBUG 14712 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:11:04.575 DEBUG 14712 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1109897627<open>)]
+2022-12-03 20:11:04.580 DEBUG 14712 --- [http-nio-8080-exec-9] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:11:05.187 DEBUG 14712 --- [http-nio-8080-exec-9] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:11:18.782 DEBUG 14712 --- [http-nio-8080-exec-10] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:11:18.786 DEBUG 14712 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(780941606<open>)] for JPA transaction
+2022-12-03 20:11:18.787 DEBUG 14712 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.example.demo.services.CartService.removeBookByISBN]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2022-12-03 20:11:18.801 DEBUG 14712 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@6176c8bc]
+2022-12-03 20:11:18.804 DEBUG 14712 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_, cart0_.`book_name` as book_nam2_2_, cart0_.`book_price` as book_pri3_2_, cart0_1_.`user_username` as user_use1_8_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
+2022-12-03 20:11:18.817 DEBUG 14712 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:11:18.818 DEBUG 14712 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(780941606<open>)]
+2022-12-03 20:11:18.820 DEBUG 14712 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : delete from `cart_user` where `cart_isbn`=?
+2022-12-03 20:11:18.829 DEBUG 14712 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : delete from `cart` where `isbn`=?
+2022-12-03 20:11:18.869 DEBUG 14712 --- [http-nio-8080-exec-10] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:11:18.874 DEBUG 14712 --- [http-nio-8080-exec-10] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:11:27.782 DEBUG 14712 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:11:27.785 DEBUG 14712 --- [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(528718221<open>)] for JPA transaction
+2022-12-03 20:11:27.785 DEBUG 14712 --- [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2022-12-03 20:11:27.790 DEBUG 14712 --- [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@38eec60]
+2022-12-03 20:11:27.796 DEBUG 14712 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_, cart0_.`book_name` as book_nam2_2_, cart0_.`book_price` as book_pri3_2_, cart0_1_.`user_username` as user_use1_8_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn`
+2022-12-03 20:11:27.800 DEBUG 14712 --- [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:11:27.801 DEBUG 14712 --- [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(528718221<open>)]
+2022-12-03 20:11:27.805 DEBUG 14712 --- [http-nio-8080-exec-1] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:11:27.815 DEBUG 14712 --- [http-nio-8080-exec-1] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:12:18.806 DEBUG 14712 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:12:18.811 DEBUG 14712 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_, book0_.`author` as author12_1_, book0_.`book_author` as book_aut2_1_, book0_.`book_avg_rating` as book_avg3_1_, book0_.`book_position` as book_pos4_1_, book0_.`book_description` as book_des5_1_, book0_.`book_genre` as book_gen6_1_, book0_.`book_name` as book_nam7_1_, book0_.`book_price` as book_pri8_1_, book0_.`book_publisher` as book_pub9_1_, book0_.`book_year` as book_ye10_1_, book0_.`books_sold` as books_s11_1_ from `books` book0_ where book0_.`isbn`=?
+2022-12-03 20:12:18.825 DEBUG 14712 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1517364538<open>)] for JPA transaction
+2022-12-03 20:12:18.826 DEBUG 14712 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2022-12-03 20:12:18.829 DEBUG 14712 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@4a06025b]
+2022-12-03 20:12:18.831 DEBUG 14712 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_0_, cart0_.`book_name` as book_nam2_2_0_, cart0_.`book_price` as book_pri3_2_0_, cart0_1_.`user_username` as user_use1_8_0_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
+2022-12-03 20:12:18.840 DEBUG 14712 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:12:18.841 DEBUG 14712 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1517364538<open>)]
+2022-12-03 20:12:18.859 DEBUG 14712 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : insert into `cart` (`book_name`, `book_price`, `isbn`) values (?, ?, ?)
+2022-12-03 20:12:18.882 DEBUG 14712 --- [http-nio-8080-exec-2] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:12:18.891 DEBUG 14712 --- [http-nio-8080-exec-2] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:12:34.137 DEBUG 14712 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:12:34.147 DEBUG 14712 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select book0_.`isbn` as isbn1_1_, book0_.`author` as author12_1_, book0_.`book_author` as book_aut2_1_, book0_.`book_avg_rating` as book_avg3_1_, book0_.`book_position` as book_pos4_1_, book0_.`book_description` as book_des5_1_, book0_.`book_genre` as book_gen6_1_, book0_.`book_name` as book_nam7_1_, book0_.`book_price` as book_pri8_1_, book0_.`book_publisher` as book_pub9_1_, book0_.`book_year` as book_ye10_1_, book0_.`books_sold` as books_s11_1_ from `books` book0_ where book0_.`isbn`=?
+2022-12-03 20:12:34.156 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(1376839276<open>)] for JPA transaction
+2022-12-03 20:12:34.163 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.save]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2022-12-03 20:12:34.167 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@48282e33]
+2022-12-03 20:12:34.170 DEBUG 14712 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_0_, cart0_.`book_name` as book_nam2_2_0_, cart0_.`book_price` as book_pri3_2_0_, cart0_1_.`user_username` as user_use1_8_0_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
+2022-12-03 20:12:34.183 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:12:34.184 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(1376839276<open>)]
+2022-12-03 20:12:34.189 DEBUG 14712 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : insert into `cart` (`book_name`, `book_price`, `isbn`) values (?, ?, ?)
+2022-12-03 20:12:34.273 DEBUG 14712 --- [http-nio-8080-exec-3] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:12:34.284 DEBUG 14712 --- [http-nio-8080-exec-3] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:12:47.021 DEBUG 14712 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:12:47.024 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(226848742<open>)] for JPA transaction
+2022-12-03 20:12:47.024 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2022-12-03 20:12:47.028 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@1291ef7a]
+2022-12-03 20:12:47.030 DEBUG 14712 --- [http-nio-8080-exec-4] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_, cart0_.`book_name` as book_nam2_2_, cart0_.`book_price` as book_pri3_2_, cart0_1_.`user_username` as user_use1_8_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn`
+2022-12-03 20:12:47.041 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:12:47.042 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(226848742<open>)]
+2022-12-03 20:12:47.045 DEBUG 14712 --- [http-nio-8080-exec-4] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:12:47.051 DEBUG 14712 --- [http-nio-8080-exec-4] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:13:38.104 DEBUG 14712 --- [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:13:38.107 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(672225862<open>)] for JPA transaction
+2022-12-03 20:13:38.108 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [com.example.demo.services.CartService.removeBookByISBN]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2022-12-03 20:13:38.115 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@460d7258]
+2022-12-03 20:13:38.118 DEBUG 14712 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_, cart0_.`book_name` as book_nam2_2_, cart0_.`book_price` as book_pri3_2_, cart0_1_.`user_username` as user_use1_8_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn` where cart0_.`isbn`=?
+2022-12-03 20:13:38.125 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:13:38.126 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(672225862<open>)]
+2022-12-03 20:13:38.132 DEBUG 14712 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : delete from `cart_user` where `cart_isbn`=?
+2022-12-03 20:13:38.136 DEBUG 14712 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : delete from `cart` where `isbn`=?
+2022-12-03 20:13:38.174 DEBUG 14712 --- [http-nio-8080-exec-5] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:13:38.182 DEBUG 14712 --- [http-nio-8080-exec-5] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:13:51.004 DEBUG 14712 --- [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Opening JPA EntityManager in OpenEntityManagerInViewInterceptor
+2022-12-03 20:13:51.013 DEBUG 14712 --- [http-nio-8080-exec-6] o.s.orm.jpa.JpaTransactionManager        : Found thread-bound EntityManager [SessionImpl(393037141<open>)] for JPA transaction
+2022-12-03 20:13:51.014 DEBUG 14712 --- [http-nio-8080-exec-6] o.s.orm.jpa.JpaTransactionManager        : Creating new transaction with name [org.springframework.data.jpa.repository.support.SimpleJpaRepository.findAll]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT,readOnly
+2022-12-03 20:13:51.017 DEBUG 14712 --- [http-nio-8080-exec-6] o.s.orm.jpa.JpaTransactionManager        : Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@19aaa9c8]
+2022-12-03 20:13:51.021 DEBUG 14712 --- [http-nio-8080-exec-6] org.hibernate.SQL                        : select cart0_.`isbn` as isbn1_2_, cart0_.`book_name` as book_nam2_2_, cart0_.`book_price` as book_pri3_2_, cart0_1_.`user_username` as user_use1_8_ from `cart` cart0_ left outer join `cart_user` cart0_1_ on cart0_.`isbn`=cart0_1_.`cart_isbn`
+2022-12-03 20:13:51.032 DEBUG 14712 --- [http-nio-8080-exec-6] o.s.orm.jpa.JpaTransactionManager        : Initiating transaction commit
+2022-12-03 20:13:51.033 DEBUG 14712 --- [http-nio-8080-exec-6] o.s.orm.jpa.JpaTransactionManager        : Committing JPA transaction on EntityManager [SessionImpl(393037141<open>)]
+2022-12-03 20:13:51.036 DEBUG 14712 --- [http-nio-8080-exec-6] o.s.orm.jpa.JpaTransactionManager        : Not closing pre-bound JPA EntityManager after transaction
+2022-12-03 20:13:51.045 DEBUG 14712 --- [http-nio-8080-exec-6] o.j.s.OpenEntityManagerInViewInterceptor : Closing JPA EntityManager in OpenEntityManagerInViewInterceptor

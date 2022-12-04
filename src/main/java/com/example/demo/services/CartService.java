@@ -16,6 +16,21 @@ public class CartService {
     @Autowired
     private CartRepository CartRepository;
 
+//    public Cart saveShoppingCart(Cart inputtedShoppingCart) {
+//        try {
+//            long ISBN = inputtedShoppingCart.getBookISBN();
+//            Cart shoppingCart = CartRepository.addToCartByISNB(ISBN);
+////            BeanUtils.copyProperties(inputtedShoppingCart, shoppingCart);
+//            this.CartRepository.save(shoppingCart);
+//            System.out.println("Book added to cart");
+////            updateShoppingCart(shoppingCart);
+//            return shoppingCart;
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            throw e;
+//        }
+//    }
+
     public Cart addToCartByName(Book book){
         try {
             Cart cart = CartRepository.addToCart(book);
